@@ -38,11 +38,11 @@ public class Main {
         ProblemSolver solver = matchSolver(algorithm);
 
         referee.start();
-        solver.findShortestPath(matrix);
+        Double path = solver.findShortestPath(matrix);
         referee.stop();
 
         System.out.printf("Problem shortest path %f has been found in %dms.",
-                referee.getPath(), referee.getTime());
+                path, referee.getTime());
     }
 
     private static ProblemSolver matchSolver(Algorithm algorithm) {

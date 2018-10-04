@@ -6,5 +6,5 @@ public interface ProblemSolver {
      *
      * @param matrix Matrix of distances between the cities.
      */
-    void findShortestPath(Double[][] matrix);
+    Double findShortestPath(Double[][] matrix);
 }

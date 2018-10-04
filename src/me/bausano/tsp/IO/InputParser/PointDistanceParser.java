@@ -40,7 +40,7 @@ public class PointDistanceParser implements InputParser {
     private Double[][] pointsToMatrix(Double[][] points) {
         Double[][] matrix = new Double[points.length][points.length];
         for (int k = 0; k < points.length; k++) {
-            for (int j = 0; j < points.length; j++) {
+            for (int j = k; j < points.length; j++) {
                 if (j == k) {
                     matrix[j][j] = 0d;
                     continue;
@@ -64,6 +64,6 @@ public class PointDistanceParser implements InputParser {
      * @return Distance between two points in cartesian coordinate system.
      */
     private Double calcDistance(Double[] a, Double[] b) {
-        return Math.abs(Math.sqrt((a[0]*a[0] - b[0]*b[0]) + (a[1]*a[1] - b[1]*b[1])));
+        return Math.hypot(a[0] - b[0], a[1] - b[1]);
     }
 }

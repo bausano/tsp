@@ -4,7 +4,7 @@ import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
 public class BruteForceSolver implements ProblemSolver {
     @Override
-    public void findShortestPath(Double[][] matrix) {
-        //
+    public Double findShortestPath(Double[][] matrix) {
+        return matrix[0][1];
     }
 }
