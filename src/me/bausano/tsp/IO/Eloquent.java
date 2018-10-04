@@ -23,7 +23,7 @@ public class Eloquent {
     /**
      * Matrix of distances between the cities.
      */
-    private int[][] matrix;
+    private Double[][] matrix;
 
     /**
      * Class constructor.
@@ -73,7 +73,7 @@ public class Eloquent {
         return algorithm;
     }
 
-    public int[][] getMap() {
+    public Double[][] getMap() {
         return matrix;
     }
 

@@ -34,7 +34,7 @@ public class Main {
 
         Referee referee = new Referee();
         Algorithm algorithm = eloquent.getAlgorithm();
-        int[][] matrix = eloquent.getMap();
+        Double[][] matrix = eloquent.getMap();
         ProblemSolver solver = matchSolver(algorithm);
 
         referee.start();
