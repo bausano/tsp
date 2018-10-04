@@ -1,14 +1,25 @@
 package me.bausano.tsp;
 
+import me.bausano.tsp.Enum.Algorithm;
+import me.bausano.tsp.Exception.InvalidAlgorithmChoiceException;
+import me.bausano.tsp.Exception.InvalidInputDataFormat;
+import me.bausano.tsp.IO.Eloquent;
+import me.bausano.tsp.IO.InputParser.InputParser;
+import me.bausano.tsp.IO.InputParser.PointDistanceParser;
+import me.bausano.tsp.IO.Referee;
+import me.bausano.tsp.ProblemSolver.BruteForceSolver.BruteForceSolver;
+import me.bausano.tsp.ProblemSolver.ProblemSolver;
+
 public class Main {
 
     public static void main(String[] args) {
-        // Program description here.
+        InputParser parser = new PointDistanceParser();
+        Eloquent eloquent = new Eloquent(parser);
 
         try {
-            inputParser.requestAlgorithm();
+            eloquent.requestAlgorithm();
 
-            inputParser.requestData();
+            eloquent.requestData();
         } catch (InvalidAlgorithmChoiceException e) {
             System.out.println("Invalid algorithm choice. Please refer to program description.");
         } catch (InvalidInputDataFormat e) {
@@ -18,19 +29,22 @@ public class Main {
         }
 
         Referee referee = new Referee();
-        Algorithm algorithm = inputParser.getAlgorithm();
-        int[][] map = inputParser.getMap();
-        ProblemSolver solver;
+        Algorithm algorithm = eloquent.getAlgorithm();
+        int[][] matrix = eloquent.getMap();
+        ProblemSolver solver = matchSolver(algorithm);
 
-        switch (algorithm) {
-            case Algorithm.BRUTE_FORCE:
-                solver = new BruteForceSolver(referee);
-                break;
-        }
+        referee.start();
+        solver.findShortestPath(matrix);
+        referee.stop();
 
-        solver.findShortestPath(map);
-
-        System.out.print("Problem shortest path %d has been found in %dms.",
+        System.out.printf("Problem shortest path %f has been found in %dms.",
                 referee.getPath(), referee.getTime());
+    }
+
+    private static ProblemSolver matchSolver(Algorithm algorithm) {
+        switch (algorithm) {
+            case BRUTE_FORCE:
+                return new BruteForceSolver();
+        }
     }
 }
