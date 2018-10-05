@@ -15,6 +15,8 @@ public class BruteForceSolver implements ProblemSolver {
     /**
      * Brute force solving of Travelling Salesman problem.
      *
+     * O(n!)
+     *
      * @param matrix Matrix of distances between the cities.
      *
      * @return Minimum distance one has to travel in order to visit all points.
@@ -40,13 +42,14 @@ public class BruteForceSolver implements ProblemSolver {
      * @return The distance which would get us to that point.
      */
     private Double recursiveSearch(Double traveled, List<Integer> visited) {
-        // If we have visited all points, return the total distance.
-        if (visited.size() == matrix.length) {
-            return traveled;
-        }
-
         // Gets last point visited which will be used to compute the distance from this to other points.
         Integer lastVisited = visited.get(visited.size() - 1);
+
+        // If we have visited all points, return the total distance.
+        if (visited.size() == matrix.length) {
+            return traveled + matrix[lastVisited][0];
+        }
+
         List<Double> distances = new ArrayList<>();
         for (Integer point = 1; point < matrix.length; point++) {
             // If this point has already been visited, skip.
