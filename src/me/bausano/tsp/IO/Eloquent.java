@@ -42,7 +42,7 @@ public class Eloquent {
     public void requestAlgorithm() throws InvalidAlgorithmChoiceException {
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
+        String input = scanner.nextLine().trim();
 
         try {
             algorithm = Algorithm.valueOf(input);
@@ -59,7 +59,7 @@ public class Eloquent {
     public void requestData() throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        String path = scanner.nextLine();
+        String path = scanner.nextLine().trim();
 
         ArrayList<String> lines = parseFile(path);
 
@@ -95,7 +95,7 @@ public class Eloquent {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         while((line = bufferedReader.readLine()) != null) {
-            lines.add(line);
+            lines.add(line.trim());
         }
 
         bufferedReader.close();
