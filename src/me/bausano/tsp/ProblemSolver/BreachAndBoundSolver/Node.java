@@ -13,10 +13,17 @@ class Node implements Comparable<Node>{
 
     private Double shadowCost = 0d;
 
+    private Integer visited;
+
     Node(Integer index, Tuple<Double> tuple, Double reduction) {
+        this(index, tuple, reduction, 0);
+    }
+
+    Node(Integer index, Tuple<Double> tuple, Double reduction, Integer visited) {
         this.index = index;
         this.tuple = tuple;
         this.reduction = reduction;
+        this.visited = visited;
     }
 
     List<Integer> getDescendants() {
@@ -51,7 +58,7 @@ class Node implements Comparable<Node>{
         this.shadowCost += shadowCost;
     }
 
-    public Double getShadowCost() {
+    Double getShadowCost() {
         return shadowCost;
     }
 
@@ -60,5 +67,9 @@ class Node implements Comparable<Node>{
         Double diff = this.getReduction() - node.getReduction();
 
         return diff > 0 ? 1 : diff < 0 ? -1 : 0;
+    }
+
+    public Integer getVisited() {
+        return visited;
     }
 }

@@ -49,6 +49,8 @@ public class BreachAndBoundSolver implements ProblemSolver {
 
         search(queue);
 
+        System.out.printf("\nZero %d, Min %d\n", patientZero.getIndex(), this.min.getIndex());
+
         return this.min != null ? this.min.getShadowCost() : INFINITY;
     }
 
