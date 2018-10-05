@@ -52,15 +52,11 @@ class Node implements Comparable<Node>{
             return this.visited;
         }
 
-        List<Integer> visited = new ArrayList<>();
-
-        if (getParent() != null) {
-            visited.addAll(parent.getVisited());
-        }
+        List<Integer> visited = getParent() != null
+                ? new ArrayList<>(parent.getVisited())
+                : new ArrayList<>();
 
         visited.add(getIndex());
-
-        System.out.println(visited);
 
         this.visited = visited;
 

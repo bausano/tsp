@@ -1,4 +1,4 @@
-package me.bausano.tsp.ProblemSolver.BruteForceSolver;
+package me.bausano.tsp.ProblemSolver.BruteForceCutSolver;
 
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
@@ -6,11 +6,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class BruteForceSolver implements ProblemSolver {
+public class BruteForceCutSolver implements ProblemSolver {
     /**
      * Symmetric matrix with distances.
      */
     private Double[][] matrix;
+
+    /**
+     * Minimum is preset to the highest value Double can hold.
+     */
+    private Double bestResult = Double.MAX_VALUE;
 
     /**
      * Brute force solving of Travelling Salesman problem.
@@ -42,14 +47,20 @@ public class BruteForceSolver implements ProblemSolver {
      * @return The distance which would get us to that point.
      */
     private Double recursiveSearch(Double traveled, List<Integer> visited) {
+        // If the cost is already higher than previous best result, stop exploring this branch.
+        if (traveled > bestResult) {
+            return traveled;
+        }
+
         // Gets last point visited which will be used to compute the distance from this to other points.
         Integer lastVisited = visited.get(visited.size() - 1);
 
         // If we have visited all points, return the total distance.
         if (visited.size() == matrix.length) {
-            System.out.println(visited);
-            System.out.println(traveled + matrix[lastVisited][0]);
-            return traveled + matrix[lastVisited][0];
+            Double totalTraveled = traveled + matrix[lastVisited][0];
+            bestResult = Math.min(totalTraveled, bestResult);
+
+            return totalTraveled;
         }
 
         List<Double> distances = new ArrayList<>();

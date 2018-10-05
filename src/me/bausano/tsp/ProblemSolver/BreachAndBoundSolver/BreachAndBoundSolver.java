@@ -51,10 +51,11 @@ public class BreachAndBoundSolver implements ProblemSolver {
         Node parent;
 
         while ((parent = queue.poll()) != null) {
+            System.out.println(parent.getVisited());
+
             List<Integer> descendants = parent.getDescendants();
             if (descendants.size() == 0) {
                 if ((Objects.equals(this.upper, INFINITY) || parent.getReduction() < this.upper) && parent.getVisited().size() == matrix.length) {
-                    System.out.println(parent.getVisited());
                     this.upper = parent.getReduction();
                     this.min = parent;
                 }

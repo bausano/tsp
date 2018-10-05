@@ -2,7 +2,8 @@ package me.bausano.tsp.Enum;
 
 public enum Algorithm {
     BRUTE_FORCE(1),
-    BREACH_AND_BOUND(2)
+    BRUTE_FORCE_CUT(2),
+    BREACH_AND_BOUND(3)
     ;
 
     private final int algorithm;
