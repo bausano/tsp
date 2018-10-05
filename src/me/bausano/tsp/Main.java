@@ -5,6 +5,7 @@ import me.bausano.tsp.IO.Eloquent;
 import me.bausano.tsp.IO.InputParser.InputParser;
 import me.bausano.tsp.IO.InputParser.PointDistanceParser;
 import me.bausano.tsp.IO.Referee;
+import me.bausano.tsp.ProblemSolver.BreachAndBoundSolver.BreachAndBoundSolver;
 import me.bausano.tsp.ProblemSolver.BruteForceSolver.BruteForceSolver;
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
@@ -16,6 +17,7 @@ public class Main {
         System.out.println("==== In order to select an algorithm, write it's name in the cmd line.");
         System.out.println("==== Options:");
         System.out.println("==== BRUTE_FORCE");
+        System.out.println("==== BREACH_AND_BOUND");
         System.out.println("==== === === === === === === === ====");
         System.out.println("Afterwards, input the source of you file relative to current working directory.");
 
@@ -51,6 +53,8 @@ public class Main {
         switch (algorithm) {
             case BRUTE_FORCE:
                 return new BruteForceSolver();
+            case BREACH_AND_BOUND:
+                return new BreachAndBoundSolver();
         }
 
         return null;

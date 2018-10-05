@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5b6c795-9152-4080-84d4-29904799750d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/BreachAndBoundSolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/Node.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/Tuple.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/Enum/Algorithm.class" afterPath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/Enum/Algorithm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/IO/Eloquent.class" afterPath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/IO/Eloquent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/IO/InputParser/PointDistanceParser.class" afterPath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/IO/InputParser/PointDistanceParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/Main$1.class" afterPath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/Main$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/Main.class" afterPath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.class" afterPath="$PROJECT_DIR$/out/production/tsp/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/bausano/tsp/Enum/Algorithm.java" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/Enum/Algorithm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,13 +26,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BruteForceSolver.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java">
+      <file leaf-file-name="BreachAndBoundSolver.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/BreachAndBoundSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="48" column="46" lean-forward="true" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+            <state relative-caret-position="711">
+              <caret line="41" column="66" lean-forward="false" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tuple.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/Tuple.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+              <folding>
+                <element signature="e#307#308#0" expanded="true" />
+                <element signature="e#339#340#0" expanded="true" />
+                <element signature="e#369#370#0" expanded="true" />
+                <element signature="e#398#399#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/Node.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#906#907#0" expanded="true" />
+                <element signature="e#934#935#0" expanded="true" />
+                <element signature="e#963#964#0" expanded="true" />
+                <element signature="e#995#996#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,18 +92,22 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/Exception/TravellingSalesmanException.java" />
-        <option value="$PROJECT_DIR$/src/me/bausano/tsp/Enum/Algorithm.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/Exception/InvalidInputDataFormat.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/Exception/InvalidAlgorithmChoiceException.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/ProblemSolver.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/Referee.java" />
-        <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java" />
         <option value="$PROJECT_DIR$/test2.txt" />
         <option value="$PROJECT_DIR$/test3.txt" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/Eloquent.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java" />
-        <option value="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java" />
+        <option value="$PROJECT_DIR$/src/me/bausano/tsp/Enum/Algorithm.java" />
+        <option value="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" />
+        <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java" />
+        <option value="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/Tuple.java" />
+        <option value="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/ReductionComparator.java" />
+        <option value="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/Node.java" />
+        <option value="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/BreachAndBoundSolver.java" />
       </list>
     </option>
   </component>
@@ -117,7 +163,37 @@
               <item name="tsp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="tsp" type="462c0819:PsiDirectoryNode" />
+              <item name="Enum" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tsp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tsp" type="462c0819:PsiDirectoryNode" />
+              <item name="IO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tsp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tsp" type="462c0819:PsiDirectoryNode" />
+              <item name="IO" type="462c0819:PsiDirectoryNode" />
+              <item name="InputParser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tsp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tsp" type="462c0819:PsiDirectoryNode" />
               <item name="ProblemSolver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tsp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tsp" type="462c0819:PsiDirectoryNode" />
+              <item name="ProblemSolver" type="462c0819:PsiDirectoryNode" />
+              <item name="BreachAndBoundSolver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tsp" type="b2602c69:ProjectViewProjectNode" />
@@ -200,12 +276,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538687346614</updated>
-      <workItem from="1538687350491" duration="14452000" />
+      <workItem from="1538687350491" duration="23043000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14452000" />
+    <option name="totallyTimeSpent" value="23043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
@@ -247,7 +323,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -278,24 +356,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/Enum/Algorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#151#152#0" expanded="false" />
-            <element signature="e#193#194#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/Exception/InvalidAlgorithmChoiceException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
           <folding>
-            <element signature="e#163#164#0" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
+            <element signature="e#163#164#0" expanded="false" />
+            <element signature="e#254#255#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -305,8 +372,8 @@
         <state relative-caret-position="252">
           <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding>
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#292#293#0" expanded="false" />
+            <element signature="e#326#327#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -348,17 +415,7 @@
         <state relative-caret-position="1647">
           <caret line="97" column="32" lean-forward="false" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="33" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -368,15 +425,23 @@
         <state relative-caret-position="252">
           <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/Enum/Algorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1044">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        <state relative-caret-position="-277">
+          <caret line="19" column="49" lean-forward="false" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -385,8 +450,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="48" column="46" lean-forward="true" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+        <state relative-caret-position="196">
+          <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="44" column="39" lean-forward="true" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/ReductionComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding>
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#963#964#0" expanded="true" />
+            <element signature="e#995#996#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreachAndBoundSolver/BreachAndBoundSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="711">
+          <caret line="41" column="66" lean-forward="false" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
