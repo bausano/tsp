@@ -28,7 +28,7 @@ public class BruteForceSolver implements ProblemSolver {
         List<Integer> visited = new ArrayList<>();
         visited.add(0);
 
-        return recursivelySearch(0d, visited);
+        return recursiveSearch(0d, visited);
     }
 
     /**
@@ -39,7 +39,7 @@ public class BruteForceSolver implements ProblemSolver {
      *
      * @return The distance which would get us to that point.
      */
-    private Double recursivelySearch(Double traveled, List<Integer> visited) {
+    private Double recursiveSearch(Double traveled, List<Integer> visited) {
         // If we have visited all points, return the total distance.
         if (visited.size() == matrix.length) {
             return traveled;
@@ -58,7 +58,7 @@ public class BruteForceSolver implements ProblemSolver {
             List<Integer> visitedExpanded = new ArrayList<>(visited);
             visitedExpanded.add(point);
 
-            distances.add(recursivelySearch(traveled + matrix[lastVisited][point], visitedExpanded));
+            distances.add(recursiveSearch(traveled + matrix[lastVisited][point], visitedExpanded));
         }
 
         // Returns the minimum distance.
