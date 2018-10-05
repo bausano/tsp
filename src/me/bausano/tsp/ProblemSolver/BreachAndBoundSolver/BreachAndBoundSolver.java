@@ -35,19 +35,14 @@ public class BreachAndBoundSolver implements ProblemSolver {
     public Double findShortestPath(Double[][] matrix) {
         this.matrix = matrix;
 
-        for (Double[] dd : matrix) {
-            System.out.println();
-            for (Double d : dd) {
-                System.out.printf("| %f |", d);
-            }
-        }
-
         PriorityQueue<Node> queue = new PriorityQueue<>();
         Tuple<Double> patientZeroTuple = reduceMatrix(deepClone(matrix));
         Node patientZero = new Node(0, patientZeroTuple, patientZeroTuple.getReduction());
         queue.add(patientZero);
 
         search(queue);
+
+        System.out.println(matrix[this.min.getIndex()][patientZero.getIndex()]);
 
         return this.min != null ? this.min.getShadowCost() : INFINITY;
     }
@@ -58,7 +53,8 @@ public class BreachAndBoundSolver implements ProblemSolver {
         while ((parent = queue.poll()) != null) {
             List<Integer> descendants = parent.getDescendants();
             if (descendants.size() == 0) {
-                if ((Objects.equals(this.upper, INFINITY) || parent.getReduction() < this.upper) && parent.getVisited() == matrix.length) {
+                if ((Objects.equals(this.upper, INFINITY) || parent.getReduction() < this.upper) && parent.getVisited().size() == matrix.length) {
+                    System.out.println(parent.getVisited());
                     this.upper = parent.getReduction();
                     this.min = parent;
                 }
@@ -77,7 +73,7 @@ public class BreachAndBoundSolver implements ProblemSolver {
                     return;
                 }
 
-                Node child = new Node(descendant, descendantTuple, reduction, parent.getVisited() + 1);
+                Node child = new Node(descendant, descendantTuple, reduction, parent);
                 child.incrementShadowCost(parent.getShadowCost() + this.matrix[parentIndex][descendant]);
                 queue.add(child);
             }
