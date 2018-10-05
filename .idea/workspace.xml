@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5b6c795-9152-4080-84d4-29904799750d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/bausano/tsp/IO/Eloquent.java" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/IO/Eloquent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,57 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="InputParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PointDistanceParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="46" column="17" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="46" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Eloquent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/Eloquent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="97" column="32" lean-forward="false" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProblemSolver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/ProblemSolver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BruteForceSolver.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="927">
-              <caret line="63" column="39" lean-forward="true" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
+            <state relative-caret-position="207">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,15 +53,15 @@
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/Enum/Algorithm.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/Exception/InvalidInputDataFormat.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/Exception/InvalidAlgorithmChoiceException.java" />
-        <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/ProblemSolver.java" />
-        <option value="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/Referee.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java" />
         <option value="$PROJECT_DIR$/test2.txt" />
         <option value="$PROJECT_DIR$/test3.txt" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/Eloquent.java" />
         <option value="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java" />
+        <option value="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java" />
+        <option value="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" />
       </list>
     </option>
   </component>
@@ -261,12 +215,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538687346614</updated>
-      <workItem from="1538687350491" duration="12356000" />
+      <workItem from="1538687350491" duration="12589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12356000" />
+    <option name="totallyTimeSpent" value="12589000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
@@ -372,16 +326,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test3.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -406,30 +350,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java">
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="46" column="17" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="46" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/Eloquent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="97" column="32" lean-forward="false" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+        <state relative-caret-position="1836">
+          <caret line="51" column="28" lean-forward="false" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -444,10 +368,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java">
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/Eloquent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="927">
-          <caret line="63" column="39" lean-forward="true" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
+        <state relative-caret-position="1647">
+          <caret line="97" column="32" lean-forward="false" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="33" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/bausano/tsp/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

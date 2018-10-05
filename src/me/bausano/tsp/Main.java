@@ -19,9 +19,11 @@ public class Main {
         System.out.println("==== === === === === === === === ====");
         System.out.println("Afterwards, input the source of you file relative to current working directory.");
 
+        // Prepares Eloquent class.
         InputParser parser = new PointDistanceParser();
         Eloquent eloquent = new Eloquent(parser);
 
+        // Asks user for inputs.
         try {
             eloquent.requestAlgorithm();
 

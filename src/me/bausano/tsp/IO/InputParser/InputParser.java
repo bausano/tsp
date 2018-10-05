@@ -5,5 +5,5 @@ import me.bausano.tsp.Exception.InvalidInputDataFormat;
 import java.util.ArrayList;
 
 public interface InputParser {
-    public Double[][] matrixFromArray(ArrayList<String> lines) throws InvalidInputDataFormat;
+    Double[][] matrixFromArray(ArrayList<String> lines) throws InvalidInputDataFormat;
 }
