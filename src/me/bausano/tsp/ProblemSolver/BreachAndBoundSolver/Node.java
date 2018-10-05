@@ -11,6 +11,8 @@ class Node implements Comparable<Node>{
 
     private Double reduction;
 
+    private Double shadowCost = 0d;
+
     Node(Integer index, Tuple<Double> tuple, Double reduction) {
         this.index = index;
         this.tuple = tuple;
@@ -43,6 +45,14 @@ class Node implements Comparable<Node>{
 
     Double getReduction() {
         return reduction;
+    }
+
+    void incrementShadowCost(Double shadowCost) {
+        this.shadowCost += shadowCost;
+    }
+
+    public Double getShadowCost() {
+        return shadowCost;
     }
 
     @Override

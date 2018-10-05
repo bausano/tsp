@@ -4,6 +4,7 @@ import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.PriorityQueue;
 
 public class BreachAndBoundSolver implements ProblemSolver {
     static final Double INFINITY = -1d;
@@ -19,6 +20,11 @@ public class BreachAndBoundSolver implements ProblemSolver {
     private Double upper = BreachAndBoundSolver.INFINITY;
 
     /**
+     * Best ranking leaf node so far.
+     */
+    private Node min;
+
+    /**
      * Breach-n-bound approach to Travelling Salesman problem.
      *
      * @param matrix Matrix of distances between the cities.
@@ -29,27 +35,54 @@ public class BreachAndBoundSolver implements ProblemSolver {
     public Double findShortestPath(Double[][] matrix) {
         this.matrix = matrix;
 
+        PriorityQueue<Node> queue = new PriorityQueue<>();
         Tuple<Double> patientZeroTuple = reduceMatrix(this.matrix.clone());
         Node patientZero = new Node(0, patientZeroTuple, patientZeroTuple.getReduction());
+        queue.add(patientZero);
 
-        List<Integer> descendants = patientZero.getDescendants();
+        search(queue);
 
-        descendants.forEach((descendant) -> {
-            Node parent = patientZero;
-            Integer parentIndex = parent.getIndex();
-            Double[][] parentMatrix = parent.getTuple().getMatrix();
-            Double[][] descendantDescribed = describeRelationInMatrix(parentMatrix, parentIndex, descendant);
-            Tuple<Double> tuple = reduceMatrix(descendantDescribed);
-            Double reduction = parent.getReduction() + tuple.getReduction() + parentMatrix[parentIndex][descendant];
-
-            Node node = new Node(descendant, tuple, );
-        });
-
-        return 0d;
+        return this.min != null ? this.min.getShadowCost() : 69d;
     }
 
-    recursiveSearch(Tuple<Double> parent, List<Integer> visited) {
+    private void search(PriorityQueue<Node> queue) {
+        Node parent;
 
+        while ((parent = queue.poll()) != null) {
+            List<Integer> descendants = parent.getDescendants();
+            System.out.println(descendants.size());
+
+            if (descendants.size() == 0) {
+                if (parent.getReduction() < this.upper) {
+                    this.upper = parent.getReduction();
+                    this.min = parent;
+                }
+
+                continue;
+            }
+
+            for (Integer descendant : descendants) {
+                Integer parentIndex = parent.getIndex();
+                Double[][] parentMatrix = parent.getTuple().getMatrix();
+                Double[][] descendantDescribed = describeRelationInMatrix(parentMatrix, parentIndex, descendant);
+                Tuple<Double> descendantTuple = reduceMatrix(descendantDescribed);
+                for (Double[] dd : descendantDescribed) {
+                    System.out.println();
+                    for (Double d : dd) {
+                        System.out.print(d + " |");
+                    }
+                }
+                Double reduction = parent.getReduction() + descendantTuple.getReduction() + parentMatrix[parentIndex][descendant];
+
+                if (!Objects.equals(this.upper, BreachAndBoundSolver.INFINITY) && this.upper < reduction) {
+                    return;
+                }
+
+                Node child = new Node(descendant, descendantTuple, reduction);
+                child.incrementShadowCost(this.matrix[parentIndex][descendant]);
+                queue.add(child);
+            }
+        }
     }
 
     /**
