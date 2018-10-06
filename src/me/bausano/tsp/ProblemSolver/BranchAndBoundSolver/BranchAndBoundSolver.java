@@ -92,9 +92,8 @@ public class BranchAndBoundSolver implements ProblemSolver {
                 Tuple<Double> descendantTuple = reduceMatrix(descendantDescribed);
                 Double reduction = parent.getReduction() + descendantTuple.getReduction() + parentMatrix[parentIndex][descendant];
 
-                System.out.printf("[? upper: %1.0f > %1.0f + %1.0f + %1.0f] %d->%d\n", upper, parent.getReduction(), descendantTuple.getReduction(), parentMatrix[parentIndex][descendant], parent.getIndex(), descendant);
-                System.out.println(parent.getShadowCost() + matrix[parentIndex][descendant]);
-                System.out.println(parent.getVisited());
+                //System.out.printf("[? upper: %1.0f > %1.0f + %1.0f + %1.0f] %d->%d (%1.0f)\n", upper, parent.getReduction(), descendantTuple.getReduction(), parentMatrix[parentIndex][descendant], parentIndex, descendant, parent.getShadowCost() + matrix[parentIndex][descendant]);
+                //System.out.println(parent.getVisited());
 
                 if (!Objects.equals(upper, INFINITY) && upper < reduction) {
                     continue;

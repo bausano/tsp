@@ -1,4 +1,4 @@
-package me.bausano.tsp.ProblemSolver.BruteForceSolver;
+package me.bausano.tsp.ProblemSolver.DepthFirstSolver;
 
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class BruteForceSolver implements ProblemSolver {
+public class DepthFirstSolver implements ProblemSolver {
     /**
      * Symmetric matrix with distances.
      */

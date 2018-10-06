@@ -1,13 +1,12 @@
-package me.bausano.tsp.ProblemSolver.BruteForceCutSolver;
+package me.bausano.tsp.ProblemSolver.DepthFirstCutSolver;
 
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
-public class BruteForceCutSolver implements ProblemSolver {
+public class DepthFirstCutSolver implements ProblemSolver {
     /**
      * Symmetric matrix with distances.
      */
@@ -30,13 +29,6 @@ public class BruteForceCutSolver implements ProblemSolver {
     @Override
     public Double findShortestPath(Double[][] matrix) {
         this.matrix = matrix;
-
-        for (Double[] dd : matrix) {
-            System.out.println();
-            for (Double d : dd) {
-                System.out.printf("%f | ", d);
-            }
-        }
 
         // Since visiting all points is cycling and it doesn't matter what point we start from, we always
         // start from point i = 0.
@@ -63,15 +55,6 @@ public class BruteForceCutSolver implements ProblemSolver {
         // If we have visited all points, return the total distance.
         if (visited.size() == matrix.length) {
             bestResult = Math.min(traveled, bestResult);
-
-            if (Objects.equals(traveled, bestResult)) {
-                System.out.println();
-                for (Integer i = 0; i < visited.size() - 1; i++) {
-                    Integer curr = visited.get(i);
-                    Integer next = visited.get(i + 1);
-                    System.out.printf(" %d-%d(%1.0f) ", curr, next, matrix[curr][next]);
-                }
-            }
 
             return traveled;
         }

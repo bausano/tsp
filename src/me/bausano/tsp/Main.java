@@ -6,8 +6,9 @@ import me.bausano.tsp.IO.InputParser.InputParser;
 import me.bausano.tsp.IO.InputParser.PointDistanceParser;
 import me.bausano.tsp.IO.Referee;
 import me.bausano.tsp.ProblemSolver.BranchAndBoundSolver.BranchAndBoundSolver;
-import me.bausano.tsp.ProblemSolver.BruteForceCutSolver.BruteForceCutSolver;
-import me.bausano.tsp.ProblemSolver.BruteForceSolver.BruteForceSolver;
+import me.bausano.tsp.ProblemSolver.BreadthFirstCut.BreadthFirstCut;
+import me.bausano.tsp.ProblemSolver.DepthFirstCutSolver.DepthFirstCutSolver;
+import me.bausano.tsp.ProblemSolver.DepthFirstSolver.DepthFirstSolver;
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
 public class Main {
@@ -49,21 +50,24 @@ public class Main {
         System.out.println("==== by Michael Bausano");
         System.out.println("==== In order to select an algorithm, write it's name in the cmd line.");
         System.out.println("==== Options:");
-        System.out.println("==== BRUTE_FORCE");
-        System.out.println("==== BRUTE_FORCE_CUT");
+        System.out.println("==== DEPTH_FIRST");
+        System.out.println("==== DEPTH_FIRST_CUT");
         System.out.println("==== BRANCH_AND_BOUND");
+        System.out.println("==== BREADTH_FIRST_CUT");
         System.out.println("==== === === === === === === === ====");
         System.out.println("Afterwards, input the source of you file relative to current working directory.");
     }
 
     private static ProblemSolver matchSolver(Algorithm algorithm) {
         switch (algorithm) {
-            case BRUTE_FORCE:
-                return new BruteForceSolver();
-            case BRUTE_FORCE_CUT:
-                return new BruteForceCutSolver();
+            case DEPTH_FIRST:
+                return new DepthFirstSolver();
+            case DEPTH_FIRST_CUT:
+                return new DepthFirstCutSolver();
             case BRANCH_AND_BOUND:
                 return new BranchAndBoundSolver();
+            case BREADTH_FIRST_CUT:
+                return new BreadthFirstCut();
         }
 
         return null;

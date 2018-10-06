@@ -61,7 +61,7 @@ public class Eloquent {
         Scanner scanner = new Scanner(System.in);
 
         //String path = scanner.nextLine().trim();
-        String path = "Code/ai/tsp/test2.txt";
+        String path = "Code/ai/tsp/test4.txt";
         ArrayList<String> lines = parseFile(path);
 
         matrix = parser.matrixFromArray(lines);
