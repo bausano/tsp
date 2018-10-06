@@ -8,14 +8,14 @@ public class Referee {
     private Long end;
 
     public void start() {
-        start = (new Date()).getTime();
+        start = System.nanoTime();
     }
 
     public void stop() {
-        end = (new Date()).getTime();
+        end = System.nanoTime();
     }
 
     public Long getTime() {
-        return end - start;
+        return (end - start) / 1000000;
     }
 }

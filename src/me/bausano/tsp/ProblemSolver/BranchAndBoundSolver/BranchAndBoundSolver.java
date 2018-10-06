@@ -34,26 +34,12 @@ public class BranchAndBoundSolver implements ProblemSolver {
     @Override
     public Double findShortestPath(Double[][] matrix) {
         this.matrix = matrix;
-        System.out.println("MATRIX");
-        for (Double[] dd : matrix) {
-            System.out.println();
-            for (Double d : dd) {
-                System.out.printf("%f |", d);
-            }
-        }
+        printMatrix("root", matrix);
 
         PriorityQueue<Node> queue = new PriorityQueue<>();
         Tuple<Double> patientZeroTuple = reduceMatrix(deepClone(matrix));
-        Node patientZero = new Node(0, patientZeroTuple, patientZeroTuple.getReduction());
+        Node patientZero = new Node(0, patientZeroTuple, 0d);
         queue.add(patientZero);
-
-        System.out.printf("\nzero %f", patientZeroTuple.getReduction());
-        for (Double[] dd : patientZeroTuple.getMatrix()) {
-            System.out.println();
-            for (Double d : dd) {
-                System.out.printf("%f |", d);
-            }
-        }
 
         search(queue);
 
@@ -64,7 +50,7 @@ public class BranchAndBoundSolver implements ProblemSolver {
             System.out.printf(" %d-%d(%1.0f) ", curr, next, matrix[curr][next]);
         }
 
-        return this.min != null ? this.min.getShadowCost() : INFINITY;
+        return this.min.getShadowCost() + matrix[this.min.getIndex()][0];
     }
 
     private void search(PriorityQueue<Node> queue) {
@@ -85,6 +71,8 @@ public class BranchAndBoundSolver implements ProblemSolver {
                 continue;
             }
 
+            System.out.println("------- ------- ------");
+            printMatrix("PARENT", parent.getTuple().getMatrix());
             for (Integer descendant : descendants) {
                 Integer parentIndex = parent.getIndex();
                 Double[][] parentMatrix = parent.getTuple().getMatrix();
@@ -92,13 +80,15 @@ public class BranchAndBoundSolver implements ProblemSolver {
                 Tuple<Double> descendantTuple = reduceMatrix(descendantDescribed);
                 Double reduction = parent.getReduction() + descendantTuple.getReduction() + parentMatrix[parentIndex][descendant];
 
-                //System.out.printf("[? upper: %1.0f > %1.0f + %1.0f + %1.0f] %d->%d (%1.0f)\n", upper, parent.getReduction(), descendantTuple.getReduction(), parentMatrix[parentIndex][descendant], parentIndex, descendant, parent.getShadowCost() + matrix[parentIndex][descendant]);
-                //System.out.println(parent.getVisited());
+                System.out.printf("[? upper: %1.0f > %1.0f + %1.0f + %1.0f] %d->%d (%1.0f)\n", upper, parent.getReduction(), descendantTuple.getReduction(), parentMatrix[parentIndex][descendant], parentIndex, descendant, parent.getShadowCost() + matrix[parentIndex][descendant]);
+                System.out.println(parent.getVisited());
+                printMatrix("DESCENDANT", descendantTuple.getMatrix());
 
                 if (!Objects.equals(upper, INFINITY) && upper < reduction) {
                     continue;
                 }
 
+                System.out.printf("Appended onto the queue with shadow cost %1.0f", parent.getShadowCost() + matrix[parentIndex][descendant]);
                 Node child = new Node(descendant, descendantTuple, reduction, parent);
                 child.incrementShadowCost(parent.getShadowCost() + matrix[parentIndex][descendant]);
                 queue.add(child);
@@ -230,7 +220,7 @@ public class BranchAndBoundSolver implements ProblemSolver {
      *
      * @return Fresh instance of a matrix object.
      */
-    private Double[][] deepClone (Double[][] original) {
+    private Double[][] deepClone(Double[][] original) {
         Double[][] clone = new Double[original.length][original.length];
 
         for (Integer k = 0; k < original.length; k++) {
@@ -238,5 +228,16 @@ public class BranchAndBoundSolver implements ProblemSolver {
         }
 
         return clone;
+    }
+
+    private void printMatrix(String label, Double[][] m) {
+        System.out.print("\n<" + label + ">");
+        for (Double[] dd : m) {
+            System.out.print("\n| ");
+            for (Double d : dd) {
+                System.out.printf("%1.0f | ", d);
+            }
+        }
+        System.out.println("\n</" + label + ">");
     }
 }

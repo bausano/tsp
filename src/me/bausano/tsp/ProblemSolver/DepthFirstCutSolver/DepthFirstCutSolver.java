@@ -52,15 +52,16 @@ public class DepthFirstCutSolver implements ProblemSolver {
             return traveled;
         }
 
-        // If we have visited all points, return the total distance.
-        if (visited.size() == matrix.length) {
-            bestResult = Math.min(traveled, bestResult);
-
-            return traveled;
-        }
-
         // Gets last point visited which will be used to compute the distance from this to other points.
         Integer lastVisited = visited.get(visited.size() - 1);
+
+        // If we have visited all points, return the total distance.
+        if (visited.size() == matrix.length) {
+            Double cost = traveled + matrix[lastVisited][0];
+            bestResult = Math.min(cost, bestResult);
+
+            return cost;
+        }
 
         List<Double> distances = new ArrayList<>();
         for (Integer point = 1; point < matrix.length; point++) {

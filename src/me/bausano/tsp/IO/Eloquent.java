@@ -43,7 +43,7 @@ public class Eloquent {
         Scanner scanner = new Scanner(System.in);
 
         //String input = scanner.nextLine().trim();
-        String input = "BRANCH_AND_BOUND";
+        String input = "DEPTH_FIRST_CUT";
 
         try {
             algorithm = Algorithm.valueOf(input);
@@ -61,7 +61,7 @@ public class Eloquent {
         Scanner scanner = new Scanner(System.in);
 
         //String path = scanner.nextLine().trim();
-        String path = "Code/ai/tsp/test4.txt";
+        String path = "Code/ai/tsp/test2.txt";
         ArrayList<String> lines = parseFile(path);
 
         matrix = parser.matrixFromArray(lines);

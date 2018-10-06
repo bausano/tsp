@@ -2,21 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5b6c795-9152-4080-84d4-29904799750d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/BreadthFirstCut.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/Node.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BruteForceCutSolver/BruteForceCutSolver.java" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/DepthFirstCutSolver/DepthFirstCutSolver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.java" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/DepthFirstSolver/DepthFirstSolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/IO/InputParser/HardCodedParser.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/ProblemSolver/BreadthFirtsCut/BreadthFirtsCut.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/ProblemSolver/BreadthFirtsCut/Node.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/ProblemSolver/BruteForceCutSolver/BruteForceCutSolver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/ProblemSolver/BruteForceSolver/BruteForceSolver.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/Enum/Algorithm.class" afterPath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/Enum/Algorithm.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/IO/Eloquent.class" afterPath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/IO/Eloquent.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/Main$1.class" afterPath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/Main$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/Main.class" afterPath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/ProblemSolver/BranchAndBoundSolver/BranchAndBoundSolver.class" afterPath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/ProblemSolver/BranchAndBoundSolver/BranchAndBoundSolver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/ProblemSolver/BruteForceCutSolver/BruteForceCutSolver.class" afterPath="$PROJECT_DIR$/../out/production/tsp/me/bausano/tsp/ProblemSolver/BruteForceCutSolver/BruteForceCutSolver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/me/bausano/tsp/Enum/Algorithm.java" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/Enum/Algorithm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/me/bausano/tsp/IO/Eloquent.java" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/IO/Eloquent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/me/bausano/tsp/IO/Referee.java" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/IO/Referee.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/me/bausano/tsp/Main.java" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BranchAndBoundSolver/BranchAndBoundSolver.java" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BranchAndBoundSolver/BranchAndBoundSolver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/DepthFirstCutSolver/DepthFirstCutSolver.java" afterPath="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/DepthFirstCutSolver/DepthFirstCutSolver.java" />
     </list>
     <ignored path="$USER_HOME$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,21 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BreadthFirstCut.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/BreadthFirstCut.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BranchAndBoundSolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BranchAndBoundSolver/BranchAndBoundSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2016">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="52" column="72" lean-forward="false" selection-start-line="52" selection-start-column="72" selection-end-line="52" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -51,8 +42,50 @@
       <file leaf-file-name="Eloquent.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/IO/Eloquent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-936">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="576">
+              <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DepthFirstCutSolver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/DepthFirstCutSolver/DepthFirstCutSolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="55" column="62" lean-forward="true" selection-start-line="55" selection-start-column="62" selection-end-line="55" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="20" column="54" lean-forward="false" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HardCodedParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/IO/InputParser/HardCodedParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1332">
+              <caret line="46" column="20" lean-forward="true" selection-start-line="46" selection-start-column="20" selection-end-line="47" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Referee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/IO/Referee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -89,7 +122,7 @@
       <find>[0, 2, 1, 3, 5, 4]</find>
       <find>[0, 2, 1, 3, 4</find>
       <find>[0, 2, 1, 3, 5, 4</find>
-      <find>[0, 2, 1, 3, 5,</find>
+      <find>[0, 3]</find>
     </findStrings>
     <replaceStrings>
       <replace>int</replace>
@@ -146,6 +179,12 @@
         <option value="$PROJECT_DIR$/../../src/me/bausano/tsp/ProblemSolver/BreadthFirtsCut/BreadthFirstCut.java" />
         <option value="$PROJECT_DIR$/../../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/BreadthFirstCut.java" />
         <option value="$PROJECT_DIR$/../../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/Node.java" />
+        <option value="$PROJECT_DIR$/../src/me/bausano/tsp/IO/Referee.java" />
+        <option value="$PROJECT_DIR$/../src/me/bausano/tsp/IO/InputParser/HardCodedParser.java" />
+        <option value="$PROJECT_DIR$/../src/me/bausano/tsp/Main.java" />
+        <option value="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BranchAndBoundSolver/BranchAndBoundSolver.java" />
+        <option value="$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/DepthFirstCutSolver/DepthFirstCutSolver.java" />
+        <option value="$PROJECT_DIR$/../src/me/bausano/tsp/IO/Eloquent.java" />
       </list>
     </option>
   </component>
@@ -343,12 +382,12 @@
       <workItem from="1538825097249" duration="294000" />
       <workItem from="1538825414798" duration="258000" />
       <workItem from="1538825699926" duration="17429000" />
-      <workItem from="1538854521394" duration="266000" />
+      <workItem from="1538854521394" duration="9302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61194000" />
+    <option name="totallyTimeSpent" value="70230000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="412" y="-4" width="1922" height="1092" extended-state="6" />
@@ -356,12 +395,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297769" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42967993" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -372,14 +413,12 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297769" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297769" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297769" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -396,13 +435,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/src/me/bausano/tsp/Main.java" />
-    <entry file="file://$USER_HOME$/src/me/bausano/tsp/ProblemSolver/BruteForceCutSolver/BruteForceCutSolver.java" />
-    <entry file="file://$USER_HOME$/src/me/bausano/tsp/Enum/Algorithm.java" />
-    <entry file="file://$USER_HOME$/tsp.iml" />
-    <entry file="file://$USER_HOME$/src/me/bausano/tsp/Exception/TravellingSalesmanException.java" />
-    <entry file="file://$USER_HOME$/src/me/bausano/tsp/Exception/InvalidInputDataFormat.java" />
-    <entry file="file://$USER_HOME$/src/me/bausano/tsp/Exception/InvalidAlgorithmChoiceException.java" />
     <entry file="file://$USER_HOME$/src/me/bausano/tsp/IO/Referee.java" />
     <entry file="file://$USER_HOME$/test2.txt" />
     <entry file="file://$USER_HOME$/test1.txt" />
@@ -439,26 +471,124 @@
     <entry file="file://$PROJECT_DIR$/../../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/BreadthFirstCut.java" />
     <entry file="file://$PROJECT_DIR$/../../src/me/bausano/tsp/Main.java" />
     <entry file="file://$PROJECT_DIR$/../../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/Node.java" />
+    <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/BreadthFirstCut.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
+        <state relative-caret-position="27">
           <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test5.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/IO/InputParser/InputParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/IO/Referee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/IO/InputParser/HardCodedParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1332">
+          <caret line="46" column="20" lean-forward="true" selection-start-line="46" selection-start-column="20" selection-end-line="47" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="54" lean-forward="false" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/BranchAndBoundSolver/BranchAndBoundSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2016">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="52" column="72" lean-forward="false" selection-start-line="52" selection-start-column="72" selection-end-line="52" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/ProblemSolver/DepthFirstCutSolver/DepthFirstCutSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="55" column="62" lean-forward="true" selection-start-line="55" selection-start-column="62" selection-end-line="55" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../src/me/bausano/tsp/IO/Eloquent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-936">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="576">
+          <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
           <folding />
         </state>
       </provider>
