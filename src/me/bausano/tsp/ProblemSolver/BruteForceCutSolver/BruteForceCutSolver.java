@@ -5,6 +5,7 @@ import me.bausano.tsp.ProblemSolver.ProblemSolver;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class BruteForceCutSolver implements ProblemSolver {
     /**
@@ -30,6 +31,13 @@ public class BruteForceCutSolver implements ProblemSolver {
     public Double findShortestPath(Double[][] matrix) {
         this.matrix = matrix;
 
+        for (Double[] dd : matrix) {
+            System.out.println();
+            for (Double d : dd) {
+                System.out.printf("%f | ", d);
+            }
+        }
+
         // Since visiting all points is cycling and it doesn't matter what point we start from, we always
         // start from point i = 0.
         List<Integer> visited = new ArrayList<>();
@@ -52,16 +60,24 @@ public class BruteForceCutSolver implements ProblemSolver {
             return traveled;
         }
 
-        // Gets last point visited which will be used to compute the distance from this to other points.
-        Integer lastVisited = visited.get(visited.size() - 1);
-
         // If we have visited all points, return the total distance.
         if (visited.size() == matrix.length) {
-            Double totalTraveled = traveled + matrix[lastVisited][0];
-            bestResult = Math.min(totalTraveled, bestResult);
+            bestResult = Math.min(traveled, bestResult);
 
-            return totalTraveled;
+            if (Objects.equals(traveled, bestResult)) {
+                System.out.println();
+                for (Integer i = 0; i < visited.size() - 1; i++) {
+                    Integer curr = visited.get(i);
+                    Integer next = visited.get(i + 1);
+                    System.out.printf(" %d-%d(%1.0f) ", curr, next, matrix[curr][next]);
+                }
+            }
+
+            return traveled;
         }
+
+        // Gets last point visited which will be used to compute the distance from this to other points.
+        Integer lastVisited = visited.get(visited.size() - 1);
 
         List<Double> distances = new ArrayList<>();
         for (Integer point = 1; point < matrix.length; point++) {

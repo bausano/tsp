@@ -42,7 +42,8 @@ public class Eloquent {
     public void requestAlgorithm() throws InvalidAlgorithmChoiceException {
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine().trim();
+        //String input = scanner.nextLine().trim();
+        String input = "BRANCH_AND_BOUND";
 
         try {
             algorithm = Algorithm.valueOf(input);
@@ -59,8 +60,8 @@ public class Eloquent {
     public void requestData() throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        String path = scanner.nextLine().trim();
-
+        //String path = scanner.nextLine().trim();
+        String path = "Code/ai/tsp/test2.txt";
         ArrayList<String> lines = parseFile(path);
 
         matrix = parser.matrixFromArray(lines);

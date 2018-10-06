@@ -47,6 +47,8 @@ public class PointDistanceParser implements InputParser {
                 }
 
                 Double distance = calcDistance(points[k], points[j]);
+                String str = String.format("%1.0f", distance);
+                distance = Double.valueOf(str);
                 matrix[j][k] = distance;
                 matrix[k][j] = distance;
             }

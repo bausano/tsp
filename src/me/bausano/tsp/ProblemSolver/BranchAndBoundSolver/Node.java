@@ -1,21 +1,18 @@
-package me.bausano.tsp.ProblemSolver.BreachAndBoundSolver;
+package me.bausano.tsp.ProblemSolver.BranchAndBoundSolver;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 class Node implements Comparable<Node>{
     private Integer index;
 
     private Tuple<Double> tuple;
 
-    private Double reduction;
+    private final Double reduction;
 
     private Double shadowCost = 0d;
 
-    private Node parent;
+    private Node parent = null;
 
     private List<Integer> visited = null;
 
@@ -36,13 +33,13 @@ class Node implements Comparable<Node>{
 
        Integer len = tuple.getMatrix().length;
 
-       for (Integer k = 0; k < len; k++) {
-           if (visitedNodes.contains(k)) {
-               continue;
-           }
+        for (Integer k = 1; k < len; k++) {
+            if (visitedNodes.contains(k)) {
+                continue;
+            }
 
-           descendants.add(k);
-       }
+            descendants.add(k);
+        }
 
        return descendants;
     }

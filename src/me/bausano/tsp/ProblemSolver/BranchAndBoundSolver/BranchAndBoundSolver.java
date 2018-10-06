@@ -1,4 +1,4 @@
-package me.bausano.tsp.ProblemSolver.BreachAndBoundSolver;
+package me.bausano.tsp.ProblemSolver.BranchAndBoundSolver;
 
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.PriorityQueue;
 
-public class BreachAndBoundSolver implements ProblemSolver {
+public class BranchAndBoundSolver implements ProblemSolver {
     static final Double INFINITY = -1d;
 
     /**
@@ -25,7 +25,7 @@ public class BreachAndBoundSolver implements ProblemSolver {
     private Node min;
 
     /**
-     * Breach-n-bound approach to Travelling Salesman problem.
+     * Branch-n-bound approach to Travelling Salesman problem.
      *
      * @param matrix Matrix of distances between the cities.
      *
@@ -34,15 +34,35 @@ public class BreachAndBoundSolver implements ProblemSolver {
     @Override
     public Double findShortestPath(Double[][] matrix) {
         this.matrix = matrix;
+        System.out.println("MATRIX");
+        for (Double[] dd : matrix) {
+            System.out.println();
+            for (Double d : dd) {
+                System.out.printf("%f |", d);
+            }
+        }
 
         PriorityQueue<Node> queue = new PriorityQueue<>();
         Tuple<Double> patientZeroTuple = reduceMatrix(deepClone(matrix));
         Node patientZero = new Node(0, patientZeroTuple, patientZeroTuple.getReduction());
         queue.add(patientZero);
 
+        System.out.printf("\nzero %f", patientZeroTuple.getReduction());
+        for (Double[] dd : patientZeroTuple.getMatrix()) {
+            System.out.println();
+            for (Double d : dd) {
+                System.out.printf("%f |", d);
+            }
+        }
+
         search(queue);
 
-        System.out.println(matrix[this.min.getIndex()][patientZero.getIndex()]);
+        System.out.println("-------------------");
+        for (Integer i = 0; i < this.min.getVisited().size() - 1; i++) {
+            Integer curr = this.min.getVisited().get(i);
+            Integer next = this.min.getVisited().get(i + 1);
+            System.out.printf(" %d-%d(%1.0f) ", curr, next, matrix[curr][next]);
+        }
 
         return this.min != null ? this.min.getShadowCost() : INFINITY;
     }
@@ -51,11 +71,13 @@ public class BreachAndBoundSolver implements ProblemSolver {
         Node parent;
 
         while ((parent = queue.poll()) != null) {
-            System.out.println(parent.getVisited());
+            if (!Objects.equals(upper, INFINITY) && parent.getReduction() > upper) {
+                continue;
+            }
 
             List<Integer> descendants = parent.getDescendants();
             if (descendants.size() == 0) {
-                if ((Objects.equals(this.upper, INFINITY) || parent.getReduction() < this.upper) && parent.getVisited().size() == matrix.length) {
+                if ((Objects.equals(upper, INFINITY) || parent.getReduction() < upper) && parent.getVisited().size() == matrix.length) {
                     this.upper = parent.getReduction();
                     this.min = parent;
                 }
@@ -70,12 +92,16 @@ public class BreachAndBoundSolver implements ProblemSolver {
                 Tuple<Double> descendantTuple = reduceMatrix(descendantDescribed);
                 Double reduction = parent.getReduction() + descendantTuple.getReduction() + parentMatrix[parentIndex][descendant];
 
-                if (!Objects.equals(this.upper, INFINITY) && this.upper < reduction) {
-                    return;
+                System.out.printf("[? upper: %1.0f > %1.0f + %1.0f + %1.0f] %d->%d\n", upper, parent.getReduction(), descendantTuple.getReduction(), parentMatrix[parentIndex][descendant], parent.getIndex(), descendant);
+                System.out.println(parent.getShadowCost() + matrix[parentIndex][descendant]);
+                System.out.println(parent.getVisited());
+
+                if (!Objects.equals(upper, INFINITY) && upper < reduction) {
+                    continue;
                 }
 
                 Node child = new Node(descendant, descendantTuple, reduction, parent);
-                child.incrementShadowCost(parent.getShadowCost() + this.matrix[parentIndex][descendant]);
+                child.incrementShadowCost(parent.getShadowCost() + matrix[parentIndex][descendant]);
                 queue.add(child);
             }
         }
@@ -99,8 +125,7 @@ public class BreachAndBoundSolver implements ProblemSolver {
             clone[k][child] = INFINITY;
         }
 
-        clone[parent][child] = INFINITY;
-        clone[child][parent] = INFINITY;
+        clone[child][0] = INFINITY;
 
         return clone;
     }
@@ -124,37 +149,38 @@ public class BreachAndBoundSolver implements ProblemSolver {
     /**
      * Reduces all rows on a matrix.
      *
-     * @param matrix Matrix to be reduced.
+     * @param source Matrix to be reduced.
      *
      * @return The reduction of reduction.
      */
-    private Double reduceMatrixRows (Double[][] matrix) {
+    private Double reduceMatrixRows(Double[][] source) {
         Double reduction = 0d;
 
         outer:
-        for (int k = 0; k < matrix.length; k++) {
+        for (int row = 0; row < source.length; row++) {
             // Finds the minimum cost.
             Double min = Double.MAX_VALUE;
-            for (Double d : matrix[k]) {
-                if (d == 0) {
-                    continue outer;
-                } else if (Objects.equals(d, INFINITY)) {
-                    continue;
-                }
+            for (Double cell : source[row]) {
+                if (cell == 0)  continue outer;
+                else if (Objects.equals(cell, INFINITY)) continue;
 
-                min = Math.min(min, d);
+                min = Math.min(min, cell);
+            }
+
+            if (min == Double.MAX_VALUE) {
+                continue;
             }
 
             // Updates the data.
-            for (int j = 0; j < matrix.length; j++) {
-                if (Objects.equals(matrix[k][j], INFINITY)) {
+            for (int col = 0; col < source.length; col++) {
+                if (Objects.equals(source[row][col], INFINITY)) {
                     continue;
                 }
 
-                Double reduced = matrix[k][j] - min;
-                reduction += reduced;
-                matrix[k][j] = reduced;
+                source[row][col] = source[row][col] - min;
             }
+
+            reduction += min;
         }
 
         return reduction;
@@ -163,35 +189,36 @@ public class BreachAndBoundSolver implements ProblemSolver {
     /**
      * Reduces all columns on a matrix.
      *
-     * @param matrix Matrix to be reduced.
+     * @param source Matrix to be reduced.
      *
      * @return The reduction of reduction.
      */
-    private Double reduceMatrixColumns(Double[][] matrix) {
+    private Double reduceMatrixColumns(Double[][] source) {
         Double reduction = 0d;
 
         outer:
-        for (int k = 0; k < matrix.length; k++) {
+        for (int col = 0; col < source.length; col++) {
             Double min = Double.MAX_VALUE;
-            for (Double[] d : matrix) {
-                if (d[k] == 0) {
-                    continue outer;
-                } else if (Objects.equals(d[k], INFINITY)) {
+            for (Double[] row : source) {
+                if (row[col] == 0)  continue outer;
+                else if (Objects.equals(row[col], INFINITY)) continue;
+
+                min = Math.min(min, row[col]);
+            }
+
+            if (min == Double.MAX_VALUE) {
+                continue;
+            }
+
+            for (int row = 0; row < source.length; row++) {
+                if (Objects.equals(source[row][col], INFINITY)) {
                     continue;
                 }
 
-                min = Math.min(min, d[k]);
+                source[row][col] = source[row][col] - min;
             }
 
-            for (int j = 0; j < matrix.length; j++) {
-                if (Objects.equals(matrix[j][k], INFINITY)) {
-                    continue;
-                }
-
-                Double reduced = matrix[j][k] - min;
-                reduction += reduced;
-                matrix[j][k] = reduced;
-            }
+            reduction += min;
         }
 
         return reduction;

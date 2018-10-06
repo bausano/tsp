@@ -5,7 +5,7 @@ import me.bausano.tsp.IO.Eloquent;
 import me.bausano.tsp.IO.InputParser.InputParser;
 import me.bausano.tsp.IO.InputParser.PointDistanceParser;
 import me.bausano.tsp.IO.Referee;
-import me.bausano.tsp.ProblemSolver.BreachAndBoundSolver.BreachAndBoundSolver;
+import me.bausano.tsp.ProblemSolver.BranchAndBoundSolver.BranchAndBoundSolver;
 import me.bausano.tsp.ProblemSolver.BruteForceCutSolver.BruteForceCutSolver;
 import me.bausano.tsp.ProblemSolver.BruteForceSolver.BruteForceSolver;
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
@@ -23,6 +23,7 @@ public class Main {
         try {
             eloquent.requestAlgorithm();
 
+            System.out.print(System.getProperty("user.dir") + "/");
             eloquent.requestData();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -50,7 +51,7 @@ public class Main {
         System.out.println("==== Options:");
         System.out.println("==== BRUTE_FORCE");
         System.out.println("==== BRUTE_FORCE_CUT");
-        System.out.println("==== BREACH_AND_BOUND");
+        System.out.println("==== BRANCH_AND_BOUND");
         System.out.println("==== === === === === === === === ====");
         System.out.println("Afterwards, input the source of you file relative to current working directory.");
     }
@@ -61,8 +62,8 @@ public class Main {
                 return new BruteForceSolver();
             case BRUTE_FORCE_CUT:
                 return new BruteForceCutSolver();
-            case BREACH_AND_BOUND:
-                return new BreachAndBoundSolver();
+            case BRANCH_AND_BOUND:
+                return new BranchAndBoundSolver();
         }
 
         return null;
