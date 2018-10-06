@@ -53,8 +53,9 @@ public class BreadthFirstCut implements ProblemSolver {
 
             List<Integer> descendants = parent.getDescendants(matrix.length);
             if (descendants.size() == 0) {
-                if (parent.getCost() < upper) {
-                    this.upper = parent.getCost();
+                Double cost = parent.getCost() + matrix[parent.getIndex()][0];
+                if (cost < upper) {
+                    this.upper = cost;
                 }
 
                 continue;

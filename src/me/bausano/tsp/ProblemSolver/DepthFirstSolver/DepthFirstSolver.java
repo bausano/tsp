@@ -42,13 +42,13 @@ public class DepthFirstSolver implements ProblemSolver {
      * @return The distance which would get us to that point.
      */
     private Double recursiveSearch(Double traveled, List<Integer> visited) {
-        // If we have visited all points, return the total distance.
-        if (visited.size() == matrix.length) {
-            return traveled;
-        }
-
         // Gets last point visited which will be used to compute the distance from this to other points.
         Integer lastVisited = visited.get(visited.size() - 1);
+
+        // If we have visited all points, return the total distance.
+        if (visited.size() == matrix.length) {
+            return traveled + matrix[lastVisited][0];
+        }
 
         List<Double> distances = new ArrayList<>();
         for (Integer point = 1; point < matrix.length; point++) {
