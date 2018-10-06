@@ -2,6 +2,7 @@ package me.bausano.tsp.ProblemSolver.BranchAndBoundSolver;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 class Node implements Comparable<Node>{
     private Integer index;
@@ -12,29 +13,19 @@ class Node implements Comparable<Node>{
 
     private Double shadowCost = 0d;
 
-    private Node parent = null;
-
-    private List<Integer> visited = null;
-
     Node(Integer index, Tuple<Double> tuple, Double reduction) {
-        this(index, tuple, reduction, null);
-    }
-
-    Node(Integer index, Tuple<Double> tuple, Double reduction, Node parent) {
         this.index = index;
         this.tuple = tuple;
         this.reduction = reduction;
-        this.parent = parent;
     }
 
     List<Integer> getDescendants() {
        List<Integer> descendants = new ArrayList<>();
-       List<Integer> visitedNodes = getVisited();
 
-       Integer len = tuple.getMatrix().length;
+       Double[][] matrix = tuple.getMatrix();
 
-        for (Integer k = 1; k < len; k++) {
-            if (visitedNodes.contains(k)) {
+        for (Integer k = 1; k < matrix.length; k++) {
+            if (Objects.equals(matrix[k][0], BranchAndBoundSolver.INFINITY)) {
                 continue;
             }
 
@@ -42,22 +33,6 @@ class Node implements Comparable<Node>{
         }
 
        return descendants;
-    }
-
-    List<Integer> getVisited() {
-        if (this.visited != null) {
-            return this.visited;
-        }
-
-        List<Integer> visited = getParent() != null
-                ? new ArrayList<>(parent.getVisited())
-                : new ArrayList<>();
-
-        visited.add(getIndex());
-
-        this.visited = visited;
-
-        return visited;
     }
 
     Integer getIndex() {
@@ -78,10 +53,6 @@ class Node implements Comparable<Node>{
 
     Double getShadowCost() {
         return shadowCost;
-    }
-
-    private Node getParent() {
-        return parent;
     }
 
     @Override

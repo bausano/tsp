@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 
 public class BranchAndBoundSolver implements ProblemSolver {
-    private static final Double INFINITY = -1d;
+    static final Double INFINITY = -1d;
 
     /**
      * Symmetric matrix with distances.
@@ -15,9 +15,9 @@ public class BranchAndBoundSolver implements ProblemSolver {
     private Double[][] matrix;
 
     /**
-     * Upper bound starts with INFINITY.
+     * Lower bound starts with INFINITY.
      */
-    private Double upper = INFINITY;
+    private Double lower = INFINITY;
 
     /**
      * Best ranking leaf node so far.
@@ -50,14 +50,14 @@ public class BranchAndBoundSolver implements ProblemSolver {
         Node parent;
 
         while ((parent = queue.poll()) != null) {
-            if (!Objects.equals(upper, INFINITY) && parent.getReduction() > upper) {
+            if (!Objects.equals(lower, INFINITY) && parent.getReduction() > lower) {
                 continue;
             }
 
             List<Integer> descendants = parent.getDescendants();
             if (descendants.size() == 0) {
-                if ((Objects.equals(upper, INFINITY) || parent.getReduction() < upper) && parent.getVisited().size() == matrix.length) {
-                    this.upper = parent.getReduction();
+                if ((Objects.equals(lower, INFINITY) || parent.getReduction() < lower)) {
+                    this.lower = parent.getReduction();
                     this.min = parent;
                 }
 
@@ -71,11 +71,11 @@ public class BranchAndBoundSolver implements ProblemSolver {
                 Tuple<Double> descendantTuple = reduceMatrix(descendantDescribed);
                 Double reduction = parent.getReduction() + descendantTuple.getReduction() + parentMatrix[parentIndex][descendant];
 
-                if (!Objects.equals(upper, INFINITY) && upper < reduction) {
+                if (!Objects.equals(lower, INFINITY) && lower < reduction) {
                     continue;
                 }
 
-                Node child = new Node(descendant, descendantTuple, reduction, parent);
+                Node child = new Node(descendant, descendantTuple, reduction);
                 child.incrementShadowCost(parent.getShadowCost() + matrix[parentIndex][descendant]);
                 queue.add(child);
             }
