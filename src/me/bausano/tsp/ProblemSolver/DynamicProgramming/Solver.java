@@ -68,7 +68,7 @@ public class Solver implements ProblemSolver {
     private void seedReferenceMatrix() {
         this.cities = matrix.length;
         // 1 << n is equivalent to 2^n.
-        // TODO: Check what happens when n <= 31.
+        // TODO: Check what happens when n >= 31.
         this.fullCycle = 1 << matrix.length;
 
         ref = new Double[cities][fullCycle];
