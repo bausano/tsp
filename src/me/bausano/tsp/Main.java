@@ -2,14 +2,9 @@ package me.bausano.tsp;
 
 import me.bausano.tsp.Enum.Algorithm;
 import me.bausano.tsp.IO.Eloquent;
-import me.bausano.tsp.IO.InputParser.HardCodedParser;
 import me.bausano.tsp.IO.InputParser.InputParser;
 import me.bausano.tsp.IO.InputParser.PointDistanceParser;
 import me.bausano.tsp.IO.Referee;
-import me.bausano.tsp.ProblemSolver.BranchAndBoundSolver.BranchAndBoundSolver;
-import me.bausano.tsp.ProblemSolver.BreadthFirstCut.BreadthFirstCut;
-import me.bausano.tsp.ProblemSolver.DepthFirstCutSolver.DepthFirstCutSolver;
-import me.bausano.tsp.ProblemSolver.DepthFirstSolver.DepthFirstSolver;
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
 public class Main {
@@ -38,12 +33,17 @@ public class Main {
         Double[][] matrix = eloquent.getMap();
         ProblemSolver solver = matchSolver(algorithm);
 
-        referee.start();
-        Double path = solver.findShortestPath(matrix);
-        referee.stop();
+        try {
+            referee.start();
+            Double path = solver.findShortestPath(matrix);
+            referee.stop();
 
-        System.out.printf("Shortest path %f has been found in %dms.",
-                path, referee.getTime());
+            System.out.printf("Shortest path of %f has been found in %dms.",
+                    path, referee.getTime());
+        } catch (Exception e) {
+            System.out.println("Shortest path could not be found. Reason:");
+            throw e;
+        }
     }
 
     private static void introduction() {
@@ -53,8 +53,9 @@ public class Main {
         System.out.println("==== Options:");
         System.out.println("==== DEPTH_FIRST");
         System.out.println("==== DEPTH_FIRST_CUT");
-        System.out.println("==== BRANCH_AND_BOUND");
         System.out.println("==== BREADTH_FIRST_CUT");
+        System.out.println("==== BRANCH_AND_BOUND");
+        System.out.println("==== BRANCH_AND_BOUND_WITH_NEIGHBOUR");
         System.out.println("==== === === === === === === === ====");
         System.out.println("Afterwards, input the source of you file relative to current working directory.");
     }
@@ -62,13 +63,15 @@ public class Main {
     private static ProblemSolver matchSolver(Algorithm algorithm) {
         switch (algorithm) {
             case DEPTH_FIRST:
-                return new DepthFirstSolver();
+                return new me.bausano.tsp.ProblemSolver.DepthFirst.Solver();
             case DEPTH_FIRST_CUT:
-                return new DepthFirstCutSolver();
+                return new me.bausano.tsp.ProblemSolver.DepthFirstCut.Solver();
             case BRANCH_AND_BOUND:
-                return new BranchAndBoundSolver();
+                return new me.bausano.tsp.ProblemSolver.BranchAndBound.Solver();
+            case BRANCH_AND_BOUND_WITH_NEIGHBOUR:
+                return new me.bausano.tsp.ProblemSolver.BranchAndBoundWithNeighbour.Solver();
             case BREADTH_FIRST_CUT:
-                return new BreadthFirstCut();
+                return new me.bausano.tsp.ProblemSolver.BreadthFirstCut.Solver();
         }
 
         return null;

@@ -4,7 +4,7 @@ import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
 import java.util.*;
 
-public class BreadthFirstCut implements ProblemSolver {
+public class Solver implements ProblemSolver {
 
     /**
      * Symmetric matrix with distances.

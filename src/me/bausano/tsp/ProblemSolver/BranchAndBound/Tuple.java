@@ -1,4 +1,4 @@
-package me.bausano.tsp.ProblemSolver.BranchAndBoundSolver;
+package me.bausano.tsp.ProblemSolver.BranchAndBound;
 
 class Tuple<Double> {
     private final Double reduction;

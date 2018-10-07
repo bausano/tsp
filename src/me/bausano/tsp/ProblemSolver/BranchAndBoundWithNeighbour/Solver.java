@@ -1,12 +1,10 @@
-package me.bausano.tsp.ProblemSolver.BranchAndBoundSolver;
+package me.bausano.tsp.ProblemSolver.BranchAndBoundWithNeighbour;
 
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.PriorityQueue;
+import java.util.*;
 
-public class BranchAndBoundSolver implements ProblemSolver {
+public class Solver implements ProblemSolver {
     static final Double INFINITY = -1d;
 
     /**
@@ -17,7 +15,7 @@ public class BranchAndBoundSolver implements ProblemSolver {
     /**
      * Lower bound starts with INFINITY.
      */
-    private Double lower = INFINITY;
+    private static Double lower = INFINITY;
 
     /**
      * Best ranking leaf node so far.
@@ -26,6 +24,7 @@ public class BranchAndBoundSolver implements ProblemSolver {
 
     /**
      * Branch-n-bound approach to Travelling Salesman problem.
+     * To save memory, we try will to prune the queue.
      *
      * @param matrix Matrix of distances between the cities.
      *
@@ -34,18 +33,26 @@ public class BranchAndBoundSolver implements ProblemSolver {
     @Override
     public Double findShortestPath(Double[][] matrix) {
         this.matrix = matrix;
+        // Presets lower bound with a first path found.
+        lower = nearestNeighbour(0d, new ArrayList<Integer>(){{ add(0); }});
 
+        // Creates patient zero.
         Tuple<Double> rootTuple = reduceMatrix(deepClone(matrix));
-        Node root = new Node(0, rootTuple, 0d);
+        Node root = new Node(0, rootTuple, rootTuple.getReduction());
 
         PriorityQueue<Node> queue = new PriorityQueue<>();
         queue.add(root);
 
         search(queue);
 
-        return this.min.getShadowCost() + matrix[this.min.getIndex()][0];
+        return this.min.getReduction();
     }
 
+    /**
+     * Performs the search.
+     *
+     * @param queue Priority queue.
+     */
     private void search(PriorityQueue<Node> queue) {
         Node parent;
 
@@ -55,31 +62,75 @@ public class BranchAndBoundSolver implements ProblemSolver {
             }
 
             List<Integer> descendants = parent.getDescendants();
+
+            // If all cities have been visited, compares the result to current lower bound.
             if (descendants.size() == 0) {
                 if ((Objects.equals(lower, INFINITY) || parent.getReduction() < lower)) {
-                    this.lower = parent.getReduction();
+                    lower = parent.getReduction();
                     this.min = parent;
                 }
 
                 continue;
             }
 
+            // Attempts to spawn all children of parent.
             for (Integer descendant : descendants) {
-                Integer parentIndex = parent.getIndex();
-                Double[][] parentMatrix = parent.getTuple().getMatrix();
-                Double[][] descendantDescribed = describeRelationInMatrix(parentMatrix, parentIndex, descendant);
-                Tuple<Double> descendantTuple = reduceMatrix(descendantDescribed);
-                Double reduction = parent.getReduction() + descendantTuple.getReduction() + parentMatrix[parentIndex][descendant];
+                Node child = spawnChild(descendant, parent);
 
-                if (!Objects.equals(lower, INFINITY) && lower < reduction) {
-                    continue;
-                }
-
-                Node child = new Node(descendant, descendantTuple, reduction);
-                child.incrementShadowCost(parent.getShadowCost() + matrix[parentIndex][descendant]);
-                queue.add(child);
+                if (child != null) queue.add(child);
             }
         }
+    }
+
+    private Double nearestNeighbour(Double traveled, List<Integer> visited) {
+        // Gets last point visited which will be used to compute the distance from this to other points.
+        Integer lastVisited = visited.get(visited.size() - 1);
+
+        // If we have visited all points, return the total distance.
+        if (visited.size() == matrix.length) {
+            return traveled + matrix[lastVisited][0];
+        }
+
+        // Finds the minimum value.
+        Double nearestNeighbourDistance = Double.MAX_VALUE;
+        Integer nearestNeighbour = null;
+        for (Integer child = 1; child < matrix.length; child++) {
+            if (visited.contains(child) || nearestNeighbourDistance < matrix[lastVisited][child]) {
+                continue;
+            }
+
+            nearestNeighbourDistance = matrix[lastVisited][child];
+            nearestNeighbour = child;
+        }
+
+        visited.add(nearestNeighbour);
+
+        return nearestNeighbour(traveled + nearestNeighbourDistance, visited);
+    }
+
+    /**
+     * Spawns child parent node.
+     *
+     * @param index Child index.
+     * @param parent Node the child is coming from.
+     *
+     * @return New node or null.
+     */
+    private Node spawnChild(Integer index, Node parent) {
+        Integer parentIndex = parent.getIndex();
+        Double[][] parentMatrix = parent.getTuple().getMatrix();
+        // Reduces parent matrix to produce child.
+        Double[][] childDescribed = describeRelationInMatrix(parentMatrix, parentIndex, index);
+        Tuple<Double> childTuple = reduceMatrix(childDescribed);
+        // Calculates lower bound cost with following formula:
+        // R = cost of parent + cost of step from parent to child + child matrix reduction
+        Double reduction = parent.getReduction() + childTuple.getReduction() + parentMatrix[parentIndex][index];
+
+        if (!Objects.equals(lower, INFINITY) && lower < reduction) {
+            return null;
+        }
+
+        return new Node(index, childTuple, reduction);
     }
 
     /**

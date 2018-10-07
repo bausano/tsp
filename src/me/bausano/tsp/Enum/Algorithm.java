@@ -3,8 +3,9 @@ package me.bausano.tsp.Enum;
 public enum Algorithm {
     DEPTH_FIRST(1),
     DEPTH_FIRST_CUT(2),
-    BRANCH_AND_BOUND(3),
-    BREADTH_FIRST_CUT(4)
+    BREADTH_FIRST_CUT(3),
+    BRANCH_AND_BOUND(4),
+    BRANCH_AND_BOUND_WITH_NEIGHBOUR(6),
     ;
 
     final int algorithm;

@@ -1,4 +1,4 @@
-package me.bausano.tsp.ProblemSolver.DepthFirstCutSolver;
+package me.bausano.tsp.ProblemSolver.DepthFirstCut;
 
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DepthFirstCutSolver implements ProblemSolver {
+public class Solver implements ProblemSolver {
     /**
      * Symmetric matrix with distances.
      */
