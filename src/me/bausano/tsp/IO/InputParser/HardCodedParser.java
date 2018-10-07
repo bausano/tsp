@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class HardCodedParser implements InputParser {
     @Override
     public Double[][] matrixFromArray(ArrayList<String> lines) throws InvalidInputDataFormat {
-        return matrixThree();
+        return matrixSix();
     }
 
     /**
@@ -18,12 +18,12 @@ public class HardCodedParser implements InputParser {
      */
     private Double[][] matrixOne() {
         return new Double[][]{
-                {-1d, 1d, 11d, 3d, 3d, 6d},
-                {1d, -1d, 7d, 4d, 2d, 5d},
-                {11d, 7d, -1d, 10d, 5d, 8d},
-                {3d, 4d, 10d, -1d, 1d, 10d},
-                {3d, 2d, 5d, 1d, -1d, 7d},
-                {6d, 5d, 8d, 10d, 7d, -1d}
+                {Double.POSITIVE_INFINITY, 1d, 11d, 3d, 3d, 6d},
+                {1d, Double.POSITIVE_INFINITY, 7d, 4d, 2d, 5d},
+                {11d, 7d, Double.POSITIVE_INFINITY, 10d, 5d, 8d},
+                {3d, 4d, 10d, Double.POSITIVE_INFINITY, 1d, 10d},
+                {3d, 2d, 5d, 1d, Double.POSITIVE_INFINITY, 7d},
+                {6d, 5d, 8d, 10d, 7d, Double.POSITIVE_INFINITY}
         };
     }
 
@@ -35,11 +35,11 @@ public class HardCodedParser implements InputParser {
      */
     private Double[][] matrixTwo() {
         return new Double[][]{
-                {-1d, 1d, 11d, 3d, 3d},
-                {1d, -1d, 7d, 4d, 2d},
-                {11d, 7d, -1d, 10d, 5d},
-                {3d, 4d, 10d, -1d, 1d},
-                {3d, 2d, 5d, 1d, -1d}
+                {Double.POSITIVE_INFINITY, 1d, 11d, 3d, 3d},
+                {1d, Double.POSITIVE_INFINITY, 7d, 4d, 2d},
+                {11d, 7d, Double.POSITIVE_INFINITY, 10d, 5d},
+                {3d, 4d, 10d, Double.POSITIVE_INFINITY, 1d},
+                {3d, 2d, 5d, 1d, Double.POSITIVE_INFINITY}
         };
     }
 
@@ -51,10 +51,10 @@ public class HardCodedParser implements InputParser {
      */
     private Double[][] matrixThree() {
         return new Double[][]{
-                {-1d, 1d, 11d, 3d},
-                {1d, -1d, 7d, 4d},
-                {11d, 7d, -1d, 10d},
-                {3d, 4d, 10d, -1d}
+                {Double.POSITIVE_INFINITY, 1d, 11d, 3d},
+                {1d, Double.POSITIVE_INFINITY, 7d, 4d},
+                {11d, 7d, Double.POSITIVE_INFINITY, 10d},
+                {3d, 4d, 10d, Double.POSITIVE_INFINITY}
         };
     }
 
@@ -66,11 +66,11 @@ public class HardCodedParser implements InputParser {
      */
     private Double[][] matrixFour() {
         return new Double[][]{
-                {-1d, 20d, 30d, 10d, 11d},
-                {15d, -1d, 16d, 4d, 2d},
-                {3d, 5d, -1d, 2d, 4d},
-                {19d, 6d, 18d, -1d, 3d},
-                {16d, 4d, 7d, 16d, -1d}
+                {Double.POSITIVE_INFINITY, 20d, 30d, 10d, 11d},
+                {15d, Double.POSITIVE_INFINITY, 16d, 4d, 2d},
+                {3d, 5d, Double.POSITIVE_INFINITY, 2d, 4d},
+                {19d, 6d, 18d, Double.POSITIVE_INFINITY, 3d},
+                {16d, 4d, 7d, 16d, Double.POSITIVE_INFINITY}
         };
     }
 
@@ -82,11 +82,26 @@ public class HardCodedParser implements InputParser {
      */
     private Double[][] matrixFive() {
         return new Double[][]{
-                {-1d, 10d, 8d, 9d, 7d},
-                {10d, -1d, 10d, 5d, 6d},
-                {8d, 10d, -1d, 8d, 9d},
-                {9d, 5d, 8d, -1d, 6d},
-                {7d, 6d, 9d, 6d, -1d}
+                {Double.POSITIVE_INFINITY, 10d, 8d, 9d, 7d},
+                {10d, Double.POSITIVE_INFINITY, 10d, 5d, 6d},
+                {8d, 10d, Double.POSITIVE_INFINITY, 8d, 9d},
+                {9d, 5d, 8d, Double.POSITIVE_INFINITY, 6d},
+                {7d, 6d, 9d, 6d, Double.POSITIVE_INFINITY}
+        };
+    }
+
+    /**
+     * Testing data.
+     * Shortest path: 11.
+     *
+     * @return Matrix with testing data.
+     */
+    private Double[][] matrixSix() {
+        return new Double[][]{
+                {Double.POSITIVE_INFINITY, 2d, 8d, 4d},
+                {2d, Double.POSITIVE_INFINITY, 7d, 6d},
+                {8d, 7d, Double.POSITIVE_INFINITY, 5d},
+                {4d, 6d, 5d, Double.POSITIVE_INFINITY}
         };
     }
 }

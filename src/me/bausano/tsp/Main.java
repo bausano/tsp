@@ -2,6 +2,7 @@ package me.bausano.tsp;
 
 import me.bausano.tsp.Enum.Algorithm;
 import me.bausano.tsp.IO.Eloquent;
+import me.bausano.tsp.IO.InputParser.HardCodedParser;
 import me.bausano.tsp.IO.InputParser.InputParser;
 import me.bausano.tsp.IO.InputParser.PointDistanceParser;
 import me.bausano.tsp.IO.Referee;
@@ -56,6 +57,7 @@ public class Main {
         System.out.println("==== BREADTH_FIRST_CUT");
         System.out.println("==== BRANCH_AND_BOUND");
         System.out.println("==== BRANCH_AND_BOUND_WITH_NEIGHBOUR");
+        System.out.println("==== DYNAMIC_PROGRAMMING");
         System.out.println("==== === === === === === === === ====");
         System.out.println("Afterwards, input the source of you file relative to current working directory.");
     }
@@ -72,6 +74,8 @@ public class Main {
                 return new me.bausano.tsp.ProblemSolver.BranchAndBoundWithNeighbour.Solver();
             case BREADTH_FIRST_CUT:
                 return new me.bausano.tsp.ProblemSolver.BreadthFirstCut.Solver();
+            case DYNAMIC_PROGRAMMING:
+                return new me.bausano.tsp.ProblemSolver.DynamicProgramming.Solver();
         }
 
         return null;

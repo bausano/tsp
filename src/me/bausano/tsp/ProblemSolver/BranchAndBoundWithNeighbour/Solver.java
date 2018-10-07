@@ -5,7 +5,7 @@ import me.bausano.tsp.ProblemSolver.ProblemSolver;
 import java.util.*;
 
 public class Solver implements ProblemSolver {
-    static final Double INFINITY = -1d;
+    static final Double INFINITY = Double.POSITIVE_INFINITY;
 
     /**
      * Symmetric matrix with distances.

@@ -6,6 +6,7 @@ public enum Algorithm {
     BREADTH_FIRST_CUT(3),
     BRANCH_AND_BOUND(4),
     BRANCH_AND_BOUND_WITH_NEIGHBOUR(6),
+    DYNAMIC_PROGRAMMING(7)
     ;
 
     final int algorithm;

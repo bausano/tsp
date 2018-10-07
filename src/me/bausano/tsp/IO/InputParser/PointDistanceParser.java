@@ -42,7 +42,7 @@ public class PointDistanceParser implements InputParser {
         for (int k = 0; k < points.length; k++) {
             for (int j = k; j < points.length; j++) {
                 if (j == k) {
-                    matrix[j][j] = -1d;
+                    matrix[j][j] = Double.POSITIVE_INFINITY;
                     continue;
                 }
 

@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 
 public class Solver implements ProblemSolver {
-    static final Double INFINITY = -1d;
+    static final Double INFINITY = Double.POSITIVE_INFINITY;
 
     /**
      * Lower bound starts with INFINITY.
