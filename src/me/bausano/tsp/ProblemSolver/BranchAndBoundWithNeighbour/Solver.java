@@ -35,6 +35,10 @@ public class Solver implements ProblemSolver {
         this.matrix = matrix;
         // Presets lower bound with a first path found.
         lower = nearestNeighbour(0d, new ArrayList<Integer>(){{ add(0); }});
+        System.out.println("nearest neightbour");
+        System.out.println(lower);
+        System.out.println("linear path");
+        System.out.println(linearPath());
 
         // Creates patient zero.
         Tuple<Double> rootTuple = reduceMatrix(deepClone(matrix));
@@ -106,6 +110,22 @@ public class Solver implements ProblemSolver {
         visited.add(nearestNeighbour);
 
         return nearestNeighbour(traveled + nearestNeighbourDistance, visited);
+    }
+
+    /**
+     * Finds the cost of a the simplest path.
+     * 0 - 1 - 2 - ... - n - 0
+     *
+     * @return Cost of going from first city to second and so on.
+     */
+    private double linearPath () {
+        double cost = 0d;
+
+        for (int x = 1; x < matrix.length; x++) {
+            cost += matrix[x - 1][x];
+        }
+
+        return cost + matrix[matrix.length - 1][0];
     }
 
     /**
