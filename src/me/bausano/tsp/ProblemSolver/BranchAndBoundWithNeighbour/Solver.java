@@ -3,7 +3,6 @@ package me.bausano.tsp.ProblemSolver.BranchAndBoundWithNeighbour;
 import me.bausano.tsp.IO.Referee;
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 
@@ -37,10 +36,10 @@ public class Solver implements ProblemSolver {
     public double findShortestPath(double[][] matrix) {
         this.matrix = matrix;
         // Presets lower bound with a first path found.
-        /*double nearestNeighbour = nearestNeighbour(0d, new ArrayList<Integer>(){{ add(0); }});
+        double nearestNeighbour = nearestNeighbour(0d, new ArrayList<Integer>(){{ add(0); }});
         double linearSearch = linearSearch();
 
-        lower = Math.min(nearestNeighbour, linearSearch);*/
+        lower = Math.min(nearestNeighbour, linearSearch);
 
         // Creates patient zero.
         Tuple rootTuple = reduceMatrix(deepClone(matrix));

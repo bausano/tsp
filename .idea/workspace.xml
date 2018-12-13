@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5b6c795-9152-4080-84d4-29904799750d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/IO/Eloquent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/IO/Eloquent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/HardCodedParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/HardCodedParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/InputParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/IO/InputParser/PointDistanceParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/IO/Referee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/IO/Referee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBound/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBound/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBound/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBound/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBound/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBound/Tuple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBoundWithNeighbour/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBoundWithNeighbour/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBoundWithNeighbour/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBoundWithNeighbour/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBoundWithNeighbour/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BranchAndBoundWithNeighbour/Tuple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/DepthFirst/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/DepthFirst/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/DepthFirstCut/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/DepthFirstCut/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/DynamicProgramming/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/DynamicProgramming/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/ProblemSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/bausano/tsp/ProblemSolver/ProblemSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsp.eml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tsp.iml" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,9 +17,10 @@
     <session id="18358780">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -49,14 +35,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="classpath" value="1" />
+          <entry key="eml" value="1" />
           <entry key="java" value="32" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Eclipse" value="1" />
           <entry key="JAVA" value="32" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -192,6 +181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -204,7 +194,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -212,6 +201,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544702326687" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -271,11 +261,12 @@
       <workItem from="1538885014201" duration="35928000" />
       <workItem from="1539041018927" duration="119000" />
       <workItem from="1544695470689" duration="6861000" />
+      <workItem from="1544702506155" duration="633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126580000" />
+    <option name="totallyTimeSpent" value="127213000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -284,10 +275,9 @@
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.22136137" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.2241284" />
       <window_info id="Structure" order="5" weight="0.25" />
       <window_info id="Image Layers" order="6" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
@@ -299,7 +289,7 @@
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="right" id="Cargo" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Maven Projects" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="right" id="Database" order="2" />
@@ -309,6 +299,7 @@
       <window_info anchor="right" id="Commander" order="6" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info anchor="right" id="Cargo" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,8 +309,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../../../src/me/bausano/tsp/ProblemSolver/DepthFirstSolver/DepthFirstSolver.java" />
-    <entry file="file://$PROJECT_DIR$/../../../../../src/me/bausano/tsp/ProblemSolver/BreadthFirstCut/BreadthFirstCut.java" />
     <entry file="file://$PROJECT_DIR$/../../../../../src/me/bausano/tsp/ProblemSolver/DepthFirstCutSolver/DepthFirstCutSolver.java" />
     <entry file="file://$PROJECT_DIR$/../../../../../src/me/bausano/tsp/Main.java" />
     <entry file="file://$PROJECT_DIR$/../../../../../src/me/bausano/tsp/ProblemSolver/BranchAndBoundSolver/Tuple.java" />
@@ -373,12 +362,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#314#315#0" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -462,16 +445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="26" selection-start-column="26" selection-end-column="26" />
-          <folding>
-            <element signature="e#154#155#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#260#261#0" expanded="true" />
-            <element signature="e#289#290#0" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -493,12 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
-          <folding>
-            <element signature="e#1861#1862#0" expanded="true" />
-            <element signature="e#1893#1894#0" expanded="true" />
-            <element signature="e#1927#1928#0" expanded="true" />
-            <element signature="e#1956#1957#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -506,6 +473,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
           <caret line="153" column="9" lean-forward="true" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsp.eml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

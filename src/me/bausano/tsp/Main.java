@@ -2,7 +2,6 @@ package me.bausano.tsp;
 
 import me.bausano.tsp.Enum.Algorithm;
 import me.bausano.tsp.IO.Eloquent;
-import me.bausano.tsp.IO.InputParser.HardCodedParser;
 import me.bausano.tsp.IO.InputParser.InputParser;
 import me.bausano.tsp.IO.InputParser.PointDistanceParser;
 import me.bausano.tsp.IO.Referee;
