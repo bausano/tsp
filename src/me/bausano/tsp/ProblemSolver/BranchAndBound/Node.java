@@ -13,12 +13,12 @@ class Node implements Comparable<Node>{
     /**
      * Tuple with matrix and it's reduction.
      */
-    private Tuple<Double> tuple;
+    private Tuple tuple;
 
     /**
      * Total reduction so far.
      */
-    private final Double reduction;
+    private final double reduction;
 
     /**
      * Class constructor.
@@ -27,7 +27,7 @@ class Node implements Comparable<Node>{
      * @param tuple Node information.
      * @param reduction Lower bound.
      */
-    Node(Integer index, Tuple<Double> tuple, Double reduction) {
+    Node(Integer index, Tuple tuple, double reduction) {
         this.index = index;
         this.tuple = tuple;
         this.reduction = reduction;
@@ -41,11 +41,11 @@ class Node implements Comparable<Node>{
     List<Integer> getDescendants() {
         List<Integer> descendants = new ArrayList<>();
 
-        Double[][] matrix = tuple.getMatrix();
+        double[][] matrix = tuple.getMatrix();
 
         // All non-infinite cells in first column are added to the list.
         // Great and quick reference as to which nodes were not explored yet.
-        for (Integer k = 1; k < matrix.length; k++) {
+        for (int k = 1; k < matrix.length; k++) {
             if (Objects.equals(matrix[k][0], Solver.INFINITY)) continue;
 
             descendants.add(k);
@@ -68,7 +68,7 @@ class Node implements Comparable<Node>{
      *
      * @return Tuple
      */
-    Tuple<Double> getTuple() {
+    Tuple getTuple() {
         return tuple;
     }
 
@@ -77,7 +77,7 @@ class Node implements Comparable<Node>{
      *
      * @return Reduction
      */
-    Double getReduction() {
+    double getReduction() {
         return reduction;
     }
 
@@ -90,7 +90,7 @@ class Node implements Comparable<Node>{
      */
     @Override
     public int compareTo(Node node) {
-        Double diff = this.getReduction() - node.getReduction();
+        double diff = this.getReduction() - node.getReduction();
 
         return diff > 0 ? 1 : diff < 0 ? -1 : 0;
     }

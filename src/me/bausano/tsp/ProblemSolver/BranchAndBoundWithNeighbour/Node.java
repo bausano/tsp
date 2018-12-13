@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-class Node implements Comparable<Node>{
+class Node implements Comparable<Node> {
     /**
      * City index.
      */
@@ -13,12 +13,17 @@ class Node implements Comparable<Node>{
     /**
      * Tuple with matrix and it's reduction.
      */
-    private Tuple<Double> tuple;
+    private Tuple tuple;
 
     /**
      * Total reduction so far.
      */
-    private final Double reduction;
+    private final double reduction;
+
+    /**
+     * Parent node.
+     */
+    private Node parent;
 
     private List<Integer> children = null;
 
@@ -29,10 +34,11 @@ class Node implements Comparable<Node>{
      * @param tuple Node information.
      * @param reduction Lower bound.
      */
-    Node(Integer index, Tuple<Double> tuple, Double reduction) {
+    Node(Integer index, Tuple tuple, double reduction, Node parent) {
         this.index = index;
         this.tuple = tuple;
         this.reduction = reduction;
+        this.parent = parent;
     }
 
     /**
@@ -47,7 +53,7 @@ class Node implements Comparable<Node>{
 
         List<Integer> children = new ArrayList<>();
 
-        Double[][] matrix = tuple.getMatrix();
+        double[][] matrix = tuple.getMatrix();
 
         // All non-infinite cells in first column are added to the list.
         // Great and quick reference as to which nodes were not explored yet.
@@ -76,7 +82,7 @@ class Node implements Comparable<Node>{
      *
      * @return Tuple
      */
-    Tuple<Double> getTuple() {
+    Tuple getTuple() {
         return tuple;
     }
 
@@ -85,7 +91,7 @@ class Node implements Comparable<Node>{
      *
      * @return Reduction
      */
-    Double getReduction() {
+    double getReduction() {
         return reduction;
     }
 
@@ -100,8 +106,22 @@ class Node implements Comparable<Node>{
      */
     @Override
     public int compareTo(Node node) {
-        Double diff = this.getReduction() - node.getReduction();
+        double diff = this.getReduction() - node.getReduction();
 
         return diff > 0 ? 1 : diff < 0 ? -1 : 0;
+    }
+
+    /**
+     * Prints the node path.
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        if (parent == null) {
+            return "[" + index + ", ";
+        }
+
+        return parent.toString() + index + ", ";
     }
 }

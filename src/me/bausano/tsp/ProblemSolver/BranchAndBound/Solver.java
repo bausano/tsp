@@ -7,12 +7,12 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 
 public class Solver implements ProblemSolver {
-    static final Double INFINITY = Double.POSITIVE_INFINITY;
+    static final double INFINITY = Double.POSITIVE_INFINITY;
 
     /**
      * Lower bound starts with INFINITY.
      */
-    private Double lower = INFINITY;
+    private double lower = INFINITY;
 
     /**
      * Best ranking leaf node so far.
@@ -27,8 +27,8 @@ public class Solver implements ProblemSolver {
      * @return Minimum distance one has to travel in order to visit all points.
      */
     @Override
-    public Double findShortestPath(Double[][] matrix) {
-        Tuple<Double> rootTuple = reduceMatrix(deepClone(matrix));
+    public double findShortestPath(double[][] matrix) {
+        Tuple rootTuple = reduceMatrix(deepClone(matrix));
         Node root = new Node(0, rootTuple, rootTuple.getReduction());
 
         PriorityQueue<Node> queue = new PriorityQueue<>();
@@ -82,13 +82,13 @@ public class Solver implements ProblemSolver {
      */
     private Node spawnChild(Integer index, Node parent) {
         Integer parentIndex = parent.getIndex();
-        Double[][] parentMatrix = parent.getTuple().getMatrix();
+        double[][] parentMatrix = parent.getTuple().getMatrix();
         // Reduces parent matrix to produce child.
-        Double[][] childDescribed = describeRelationInMatrix(parentMatrix, parentIndex, index);
-        Tuple<Double> childTuple = reduceMatrix(childDescribed);
+        double[][] childDescribed = describeRelationInMatrix(parentMatrix, parentIndex, index);
+        Tuple childTuple = reduceMatrix(childDescribed);
         // Calculates lower bound cost with following formula:
         // R = cost of parent + cost of step from parent to child + child matrix reduction
-        Double reduction = parent.getReduction() + childTuple.getReduction() + parentMatrix[parentIndex][index];
+        double reduction = parent.getReduction() + childTuple.getReduction() + parentMatrix[parentIndex][index];
 
         if (!Objects.equals(lower, INFINITY) && lower < reduction) {
             return null;
@@ -107,10 +107,10 @@ public class Solver implements ProblemSolver {
      *
      * @return New matrix.
      */
-    private Double[][] describeRelationInMatrix(Double[][] original, Integer parent, Integer child) {
-        Double[][] clone = deepClone(original);
+    private double[][] describeRelationInMatrix(double[][] original, Integer parent, Integer child) {
+        double[][] clone = deepClone(original);
 
-        for (Integer k = 0; k < clone.length; k++) {
+        for (int k = 0; k < clone.length; k++) {
             clone[parent][k] = INFINITY;
             clone[k][child] = INFINITY;
         }
@@ -127,13 +127,13 @@ public class Solver implements ProblemSolver {
      *
      * @return Tuple
      */
-    private Tuple<Double> reduceMatrix(Double[][] matrix) {
-        Double reduction = 0d;
+    private Tuple reduceMatrix(double[][] matrix) {
+        double reduction = 0d;
 
         reduction += reduceMatrixRows(matrix);
         reduction += reduceMatrixColumns(matrix);
 
-        return new Tuple<>(reduction, matrix);
+        return new Tuple(reduction, matrix);
     }
 
     /**
@@ -143,14 +143,14 @@ public class Solver implements ProblemSolver {
      *
      * @return The reduction of reduction.
      */
-    private Double reduceMatrixRows(Double[][] source) {
-        Double reduction = 0d;
+    private double reduceMatrixRows(double[][] source) {
+        double reduction = 0d;
 
         outer:
         for (int row = 0; row < source.length; row++) {
             // Finds the minimum cost.
-            Double min = Double.MAX_VALUE;
-            for (Double cell : source[row]) {
+            double min = Double.MAX_VALUE;
+            for (double cell : source[row]) {
                 if (cell == 0)  continue outer;
                 else if (Objects.equals(cell, INFINITY)) continue;
 
@@ -183,14 +183,14 @@ public class Solver implements ProblemSolver {
      *
      * @return The reduction of reduction.
      */
-    private Double reduceMatrixColumns(Double[][] source) {
-        Double reduction = 0d;
+    private double reduceMatrixColumns(double[][] source) {
+        double reduction = 0d;
 
         outer:
         for (int col = 0; col < source.length; col++) {
-            Double min = Double.MAX_VALUE;
+            double min = Double.MAX_VALUE;
             // Finds minimum in a column.
-            for (Double[] row : source) {
+            for (double[] row : source) {
                 if (row[col] == 0)  continue outer;
                 else if (Objects.equals(row[col], INFINITY)) continue;
 
@@ -224,10 +224,10 @@ public class Solver implements ProblemSolver {
      *
      * @return Fresh instance of a matrix object.
      */
-    private Double[][] deepClone(Double[][] original) {
-        Double[][] clone = new Double[original.length][original.length];
+    private double[][] deepClone(double[][] original) {
+        double[][] clone = new double[original.length][original.length];
 
-        for (Integer k = 0; k < original.length; k++) {
+        for (int k = 0; k < original.length; k++) {
             System.arraycopy(original[k], 0, clone[k], 0, original.length);
         }
 

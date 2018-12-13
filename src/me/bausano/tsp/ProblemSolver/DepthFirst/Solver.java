@@ -10,7 +10,7 @@ public class Solver implements ProblemSolver {
     /**
      * Symmetric matrix with distances.
      */
-    private Double[][] matrix;
+    private double[][] matrix;
 
     /**
      * Brute force solving of Travelling Salesman problem.
@@ -22,7 +22,7 @@ public class Solver implements ProblemSolver {
      * @return Minimum distance one has to travel in order to visit all descendants.
      */
     @Override
-    public Double findShortestPath(Double[][] matrix) {
+    public double findShortestPath(double[][] matrix) {
         this.matrix = matrix;
 
         // Since visiting all descendants is cycling and it doesn't matter what descendant we start from, we always
@@ -41,7 +41,7 @@ public class Solver implements ProblemSolver {
      *
      * @return The distance which would get us to that descendant.
      */
-    private Double recursiveSearch(Double traveled, List<Integer> visited) {
+    private Double recursiveSearch(double traveled, List<Integer> visited) {
         // Gets last descendant visited which will be used to compute the distance from this to other descendants.
         Integer lastVisited = visited.get(visited.size() - 1);
 

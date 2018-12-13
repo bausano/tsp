@@ -1,20 +1,20 @@
 package me.bausano.tsp.ProblemSolver.BranchAndBound;
 
-class Tuple<Double> {
-    private final Double reduction;
-    private final Double[][] matrix;
+class Tuple {
+    private final double reduction;
+    private final double[][] matrix;
 
-    Tuple(Double arg1, Double[][] arg2) {
+    Tuple(double arg1, double[][] arg2) {
         super();
         this.reduction = arg1;
         this.matrix = arg2;
     }
 
-    Double getReduction() {
+    double getReduction() {
         return reduction;
     }
 
-    Double[][] getMatrix() {
+    double[][] getMatrix() {
         return matrix;
     }
 }

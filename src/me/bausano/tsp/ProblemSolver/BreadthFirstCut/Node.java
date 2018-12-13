@@ -91,7 +91,7 @@ public class Node implements Comparable<Node>{
      *
      * @return Cost
      */
-    Double getCost() {
+    double getCost() {
         return cost;
     }
 
@@ -106,7 +106,7 @@ public class Node implements Comparable<Node>{
 
     @Override
     public int compareTo(Node node) {
-        Double diff = this.getCost() - node.getCost();
+        double diff = this.getCost() - node.getCost();
 
         return diff > 0 ? 1 : diff < 0 ? -1 : 0;
     }

@@ -14,14 +14,14 @@ public class PointDistanceParser implements InputParser {
      *
      * @throws InvalidInputDataFormat If the file format isn't correct, fails.
      */
-    public Double[][] matrixFromArray(ArrayList<String> lines) throws InvalidInputDataFormat {
+    public double[][] matrixFromArray(ArrayList<String> lines) throws InvalidInputDataFormat {
         try {
-            Double[][] points = new Double[lines.size()][2];
+            double[][] points = new double[lines.size()][2];
 
             for (int i = 0; i < lines.size(); i++) {
                 String[] raw = lines.get(i).split(" ");
                 // Gets the x and y coordinate of a city.
-                points[i] = new Double[]{Double.parseDouble(raw[1]), Double.parseDouble(raw[2])};
+                points[i] = new double[]{Double.parseDouble(raw[1]), Double.parseDouble(raw[2])};
             }
 
             return pointsToMatrix(points);
@@ -33,12 +33,12 @@ public class PointDistanceParser implements InputParser {
     /**
      * Transforms a list of points into a matrix of distances.
      *
-     * @param points List of tuples representing cities.
+     * @param points List of s representing cities.
      *
      * @return Matrix of distances.
      */
-    private Double[][] pointsToMatrix(Double[][] points) {
-        Double[][] matrix = new Double[points.length][points.length];
+    private double[][] pointsToMatrix(double[][] points) {
+        double[][] matrix = new double[points.length][points.length];
         for (int k = 0; k < points.length; k++) {
             for (int j = k; j < points.length; j++) {
                 if (j == k) {
@@ -47,8 +47,6 @@ public class PointDistanceParser implements InputParser {
                 }
 
                 Double distance = calcDistance(points[k], points[j]);
-                String str = String.format("%1.0f", distance);
-                distance = Double.valueOf(str);
                 matrix[j][k] = distance;
                 matrix[k][j] = distance;
             }
@@ -65,7 +63,7 @@ public class PointDistanceParser implements InputParser {
      *
      * @return Distance between two points in cartesian coordinate system.
      */
-    private Double calcDistance(Double[] a, Double[] b) {
+    private double calcDistance(double[] a, double[] b) {
         return Math.hypot(a[0] - b[0], a[1] - b[1]);
     }
 }

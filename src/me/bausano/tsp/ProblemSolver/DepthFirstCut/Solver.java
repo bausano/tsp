@@ -10,12 +10,12 @@ public class Solver implements ProblemSolver {
     /**
      * Symmetric matrix with distances.
      */
-    private Double[][] matrix;
+    private double[][] matrix;
 
     /**
      * Minimum is preset to the highest value Double can hold.
      */
-    private Double bestResult = Double.MAX_VALUE;
+    private double bestResult = Double.MAX_VALUE;
 
     /**
      * Brute force solving of Travelling Salesman problem.
@@ -27,7 +27,7 @@ public class Solver implements ProblemSolver {
      * @return Minimum distance one has to travel in order to visit all points.
      */
     @Override
-    public Double findShortestPath(Double[][] matrix) {
+    public double findShortestPath(double[][] matrix) {
         this.matrix = matrix;
 
         // Since visiting all points is cycling and it doesn't matter what point we start from, we always
@@ -46,7 +46,7 @@ public class Solver implements ProblemSolver {
      *
      * @return The distance which would get us to that point.
      */
-    private Double recursiveSearch(Double traveled, List<Integer> visited) {
+    private double recursiveSearch(double traveled, List<Integer> visited) {
         // If the cost is already higher than previous best result, stop exploring this branch.
         if (traveled > bestResult) {
             return traveled;
@@ -57,7 +57,7 @@ public class Solver implements ProblemSolver {
 
         // If we have visited all points, return the total distance.
         if (visited.size() == matrix.length) {
-            Double cost = traveled + matrix[lastVisited][0];
+            double cost = traveled + matrix[lastVisited][0];
             bestResult = Math.min(cost, bestResult);
 
             return cost;

@@ -29,18 +29,17 @@ public class Main {
             System.exit(1);
         }
 
-        Referee referee = new Referee();
         Algorithm algorithm = eloquent.getAlgorithm();
-        Double[][] matrix = eloquent.getMap();
+        double[][] matrix = eloquent.getMap();
         ProblemSolver solver = matchSolver(algorithm);
 
         try {
-            referee.start();
-            Double path = solver.findShortestPath(matrix);
-            referee.stop();
+            Referee.start();
+            double cost = solver.findShortestPath(matrix);
+            Referee.stop();
 
-            System.out.printf("Shortest path of %f has been found in %dms.",
-                    path, referee.getTime());
+            System.out.printf("Shortest path of %f has been found in %dns.",
+                    cost, Referee.getTime());
         } catch (Exception e) {
             System.out.println("Shortest path could not be found. Reason:");
             throw e;
@@ -51,6 +50,7 @@ public class Main {
         System.out.println("==== Travelling Salesman Problem ====");
         System.out.println("==== by Michael Bausano");
         System.out.println("==== In order to select an algorithm, write it's name in the cmd line.");
+        System.out.println("==== Default algorithm is BRANCH_AND_BOUND_WITH_NEIGHBOUR");
         System.out.println("==== Options:");
         System.out.println("==== DEPTH_FIRST");
         System.out.println("==== DEPTH_FIRST_CUT");
@@ -65,17 +65,27 @@ public class Main {
     private static ProblemSolver matchSolver(Algorithm algorithm) {
         switch (algorithm) {
             case DEPTH_FIRST:
+                System.out.println("You have selected DEPTH_FIRST. " +
+                        "This algorithm is experimental and should not be used for marking");
                 return new me.bausano.tsp.ProblemSolver.DepthFirst.Solver();
             case DEPTH_FIRST_CUT:
+                System.out.println("You have selected DEPTH_FIRST_CUT. " +
+                        "This algorithm is experimental and should not be used for marking");
                 return new me.bausano.tsp.ProblemSolver.DepthFirstCut.Solver();
             case BRANCH_AND_BOUND:
+                System.out.println("You have selected BRANCH_AND_BOUND. " +
+                        "This algorithm is experimental and should not be used for marking");
                 return new me.bausano.tsp.ProblemSolver.BranchAndBound.Solver();
-            case BRANCH_AND_BOUND_WITH_NEIGHBOUR:
-                return new me.bausano.tsp.ProblemSolver.BranchAndBoundWithNeighbour.Solver();
             case BREADTH_FIRST_CUT:
+                System.out.println("You have selected BREADTH_FIRST_CUT. " +
+                        "This algorithm is experimental and should not be used for marking");
                 return new me.bausano.tsp.ProblemSolver.BreadthFirstCut.Solver();
             case DYNAMIC_PROGRAMMING:
+                System.out.println("You have selected DYNAMIC_PROGRAMMING.");
                 return new me.bausano.tsp.ProblemSolver.DynamicProgramming.Solver();
+            case BRANCH_AND_BOUND_WITH_NEIGHBOUR:
+                System.out.println("You have selected BRANCH_AND_BOUND_WITH_NEIGHBOUR.");
+                return new me.bausano.tsp.ProblemSolver.BranchAndBoundWithNeighbour.Solver();
         }
 
         return null;

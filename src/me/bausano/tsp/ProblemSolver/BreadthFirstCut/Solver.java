@@ -9,12 +9,12 @@ public class Solver implements ProblemSolver {
     /**
      * Symmetric matrix with distances.
      */
-    private Double[][] matrix;
+    private double[][] matrix;
 
     /**
      * Upper bound starts with INFINITY.
      */
-    private Double upper = Double.MAX_VALUE;
+    private double upper = Double.MAX_VALUE;
 
     /**
      * Breadth First approach to Travelling Salesman problem with backtracking.
@@ -26,7 +26,7 @@ public class Solver implements ProblemSolver {
      * @return Minimum distance one has to travel in order to visit all points.
      */
     @Override
-    public Double findShortestPath(Double[][] matrix) {
+    public double findShortestPath(double[][] matrix) {
         this.matrix = matrix;
 
         PriorityQueue<Node> queue = new PriorityQueue<>();
@@ -53,7 +53,7 @@ public class Solver implements ProblemSolver {
 
             List<Integer> descendants = parent.getDescendants(matrix.length);
             if (descendants.size() == 0) {
-                Double cost = parent.getCost() + matrix[parent.getIndex()][0];
+                double cost = parent.getCost() + matrix[parent.getIndex()][0];
                 if (cost < upper) {
                     this.upper = cost;
                 }
@@ -73,8 +73,8 @@ public class Solver implements ProblemSolver {
      * @param queue Queue where should the children be added to.
      */
     private void spawnChildren(Node parent, List<Integer> descendants, Queue<Node> queue) {
-        for (Integer descendant : descendants) {
-            Double cost = parent.getCost() + matrix[parent.getIndex()][descendant];
+        for (int descendant : descendants) {
+            double cost = parent.getCost() + matrix[parent.getIndex()][descendant];
 
             if (upper < cost) continue;
 

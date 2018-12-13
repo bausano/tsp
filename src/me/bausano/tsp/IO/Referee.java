@@ -1,21 +1,23 @@
 package me.bausano.tsp.IO;
 
-import java.util.Date;
-
 public class Referee {
-    private Long start;
+    private static Long start;
 
-    private Long end;
+    private static Long end;
 
-    public void start() {
+    public static void start() {
         start = System.nanoTime();
     }
 
-    public void stop() {
+    public static void stop() {
         end = System.nanoTime();
     }
 
-    public Long getTime() {
-        return (end - start) / 1000000;
+    public static Long getTime() {
+        return end - start;
+    }
+
+    public static Long getTimeSoFar() {
+        return System.nanoTime() - start;
     }
 }

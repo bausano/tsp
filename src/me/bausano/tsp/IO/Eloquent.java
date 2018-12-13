@@ -23,7 +23,7 @@ public class Eloquent {
     /**
      * Matrix of distances between the cities.
      */
-    private Double[][] matrix;
+    private double[][] matrix;
 
     /**
      * Class constructor.
@@ -43,6 +43,10 @@ public class Eloquent {
         Scanner scanner = new Scanner(System.in);
 
         String input = scanner.nextLine().trim();
+
+        if (input.length() == 0) {
+            input = "BRANCH_AND_BOUND_WITH_NEIGHBOUR";
+        }
 
         try {
             algorithm = Algorithm.valueOf(input);
@@ -72,7 +76,7 @@ public class Eloquent {
         return algorithm;
     }
 
-    public Double[][] getMap() {
+    public double[][] getMap() {
         return matrix;
     }
 

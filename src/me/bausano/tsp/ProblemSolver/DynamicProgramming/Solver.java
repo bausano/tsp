@@ -8,22 +8,22 @@ public class Solver implements ProblemSolver {
     /**
      * Matrix of distances.
      */
-    private Double[][] matrix;
+    private double[][] matrix;
 
     /**
      * Number of nodes.
      */
-    private Integer cities;
+    private int cities;
 
     /**
      * State of an integer when all cities have been visited;
      */
-    private Integer fullCycle;
+    private int fullCycle;
 
     /**
      * Reference matrix where we will store computed costs.
      */
-    private Double[][] ref;
+    private double[][] ref;
 
     /**
      * Dynamic programming approach to Travelling Salesman problem.
@@ -36,8 +36,7 @@ public class Solver implements ProblemSolver {
      * I have referred to the video and came up with the main computing loop, however I have struggled
      * to create a correct algorithm that would generate all variations of the paths.
      * My attempts so far were all imperfect, missing subsets of possible paths.
-     * I have fixed the code using the reference in second video, where the author takes us through
-     * the source code. However, I am not happy with his solution and I will rewrite that logic.
+     * I have fixed the code using the video.
      *
      * O(n*n*2^n)
      *
@@ -46,7 +45,7 @@ public class Solver implements ProblemSolver {
      * @return Minimum distance one has to travel in order to visit all points.
      */
     @Override
-    public Double findShortestPath(Double[][] matrix) {
+    public double findShortestPath(double[][] matrix) {
         this.matrix = matrix;
 
         // Seeds reference matrix where we are going to store already computed paths.
@@ -71,7 +70,7 @@ public class Solver implements ProblemSolver {
         // TODO: Check what happens when n >= 31.
         this.fullCycle = 1 << matrix.length;
 
-        ref = new Double[cities][fullCycle];
+        ref = new double[cities][fullCycle];
 
         for (int i = 1; i < cities; i++) {
             // We set the first bit and i-th bit to 1.
@@ -147,13 +146,55 @@ public class Solver implements ProblemSolver {
      *
      * @return Optimal solution.
      */
-    private Double findMinimumPath() {
-        Double shortest = Double.MAX_VALUE;
+    private double findMinimumPath() {
+        double shortest = Double.MAX_VALUE;
 
-        for (Integer i = 1; i < cities; i++) {
+        for (int i = 1; i < cities; i++) {
             shortest = Math.min(shortest, ref[i][fullCycle - 1] + matrix[i][0]);
         }
 
+        System.out.println("Shortest found path:");
+        System.out.println(backtracePath());
+
         return shortest;
+    }
+
+    /**
+     * Back-traces the shortest path.
+     *
+     * @return Ordered list of city indices.
+     */
+    private List<Integer> backtracePath() {
+        // Now we have to rebuild the path by starting in city 0.
+        int last = 0;
+        int state = this.fullCycle - 1;
+
+        List<Integer> path = new ArrayList<>();
+        // We start at city with index 0.
+        path.add(0);
+
+        for (int i = 1; i < cities; i++) {
+            // Reset the index.
+            int index = -1;
+            for (int j = 0; j < cities; j++) {
+                // If this is the starting city or the city has already been visited, skip.
+                if (j == 0 || ((1 << j) & state) == 0) continue;
+                // If this is the first city we're visiting from city i, it is the city with
+                // the shortest path (because there hasn't been any other city visited yet).
+                if (index == -1) index = j;
+                // If new distance is shortest then previous best found, set the index to city j.
+                index = ref[index][state] + matrix[index][last] < ref[j][state] + matrix[j][last] ? j : index;
+            }
+
+            path.add(index);
+            // Mark city "index" as travelled.
+            state = state ^ (1 << index);
+            last = index;
+        }
+
+        // In order to make full cycle, we have to finish at the same city we started in.
+        path.add(0);
+
+        return path;
     }
 }

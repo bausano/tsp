@@ -1,21 +1,24 @@
 package me.bausano.tsp.ProblemSolver.BranchAndBoundWithNeighbour;
 
+import me.bausano.tsp.IO.Referee;
 import me.bausano.tsp.ProblemSolver.ProblemSolver;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class Solver implements ProblemSolver {
-    static final Double INFINITY = Double.POSITIVE_INFINITY;
+    static final double INFINITY = Double.POSITIVE_INFINITY;
 
     /**
      * Symmetric matrix with distances.
      */
-    private Double[][] matrix;
+    private double[][] matrix;
 
     /**
      * Lower bound starts with INFINITY.
      */
-    private static Double lower = INFINITY;
+    private static double lower = INFINITY;
 
     /**
      * Best ranking leaf node so far.
@@ -31,23 +34,26 @@ public class Solver implements ProblemSolver {
      * @return Minimum distance one has to travel in order to visit all points.
      */
     @Override
-    public Double findShortestPath(Double[][] matrix) {
+    public double findShortestPath(double[][] matrix) {
         this.matrix = matrix;
         // Presets lower bound with a first path found.
-        lower = nearestNeighbour(0d, new ArrayList<Integer>(){{ add(0); }});
-        System.out.println("nearest neightbour");
-        System.out.println(lower);
-        System.out.println("linear path");
-        System.out.println(linearPath());
+        /*double nearestNeighbour = nearestNeighbour(0d, new ArrayList<Integer>(){{ add(0); }});
+        double linearSearch = linearSearch();
+
+        lower = Math.min(nearestNeighbour, linearSearch);*/
 
         // Creates patient zero.
-        Tuple<Double> rootTuple = reduceMatrix(deepClone(matrix));
-        Node root = new Node(0, rootTuple, rootTuple.getReduction());
+        Tuple rootTuple = reduceMatrix(deepClone(matrix));
+        Node root = new Node(0, rootTuple, rootTuple.getReduction(), null);
 
         PriorityQueue<Node> queue = new PriorityQueue<>();
         queue.add(root);
 
         search(queue);
+
+        System.out.println("Shortest found path:");
+        System.out.print(this.min);
+        System.out.println("0]");
 
         return this.min.getReduction();
     }
@@ -72,13 +78,15 @@ public class Solver implements ProblemSolver {
                 if ((Objects.equals(lower, INFINITY) || parent.getReduction() < lower)) {
                     lower = parent.getReduction();
                     this.min = parent;
+                    System.out.printf("Path %s0] with cost of %f has been found in %dns. Continuing search ...\n",
+                            this.min, lower, Referee.getTimeSoFar());
                 }
 
                 continue;
             }
 
             // Attempts to spawn all children of parent.
-            for (Integer descendant : descendants) {
+            for (int descendant : descendants) {
                 Node child = spawnChild(descendant, parent);
 
                 if (child != null) queue.add(child);
@@ -88,7 +96,7 @@ public class Solver implements ProblemSolver {
 
     private Double nearestNeighbour(Double traveled, List<Integer> visited) {
         // Gets last point visited which will be used to compute the distance from this to other points.
-        Integer lastVisited = visited.get(visited.size() - 1);
+        int lastVisited = visited.get(visited.size() - 1);
 
         // If we have visited all points, return the total distance.
         if (visited.size() == matrix.length) {
@@ -98,7 +106,7 @@ public class Solver implements ProblemSolver {
         // Finds the minimum value.
         Double nearestNeighbourDistance = Double.MAX_VALUE;
         Integer nearestNeighbour = null;
-        for (Integer child = 1; child < matrix.length; child++) {
+        for (int child = 1; child < matrix.length; child++) {
             if (visited.contains(child) || nearestNeighbourDistance < matrix[lastVisited][child]) {
                 continue;
             }
@@ -118,7 +126,7 @@ public class Solver implements ProblemSolver {
      *
      * @return Cost of going from first city to second and so on.
      */
-    private double linearPath () {
+    private double linearSearch() {
         double cost = 0d;
 
         for (int x = 1; x < matrix.length; x++) {
@@ -138,19 +146,19 @@ public class Solver implements ProblemSolver {
      */
     private Node spawnChild(Integer index, Node parent) {
         Integer parentIndex = parent.getIndex();
-        Double[][] parentMatrix = parent.getTuple().getMatrix();
+        double[][] parentMatrix = parent.getTuple().getMatrix();
         // Reduces parent matrix to produce child.
-        Double[][] childDescribed = describeRelationInMatrix(parentMatrix, parentIndex, index);
-        Tuple<Double> childTuple = reduceMatrix(childDescribed);
+        double[][] childDescribed = describeRelationInMatrix(parentMatrix, parentIndex, index);
+        Tuple childTuple = reduceMatrix(childDescribed);
         // Calculates lower bound cost with following formula:
         // R = cost of parent + cost of step from parent to child + child matrix reduction
-        Double reduction = parent.getReduction() + childTuple.getReduction() + parentMatrix[parentIndex][index];
+        double reduction = parent.getReduction() + childTuple.getReduction() + parentMatrix[parentIndex][index];
 
         if (!Objects.equals(lower, INFINITY) && lower < reduction) {
             return null;
         }
 
-        return new Node(index, childTuple, reduction);
+        return new Node(index, childTuple, reduction, parent);
     }
 
     /**
@@ -163,10 +171,10 @@ public class Solver implements ProblemSolver {
      *
      * @return New matrix.
      */
-    private Double[][] describeRelationInMatrix(Double[][] original, Integer parent, Integer child) {
-        Double[][] clone = deepClone(original);
+    private double[][] describeRelationInMatrix(double[][] original, Integer parent, Integer child) {
+        double[][] clone = deepClone(original);
 
-        for (Integer k = 0; k < clone.length; k++) {
+        for (int k = 0; k < clone.length; k++) {
             clone[parent][k] = INFINITY;
             clone[k][child] = INFINITY;
         }
@@ -183,13 +191,13 @@ public class Solver implements ProblemSolver {
      *
      * @return Tuple
      */
-    private Tuple<Double> reduceMatrix(Double[][] matrix) {
-        Double reduction = 0d;
+    private Tuple reduceMatrix(double[][] matrix) {
+        double reduction = 0d;
 
         reduction += reduceMatrixRows(matrix);
         reduction += reduceMatrixColumns(matrix);
 
-        return new Tuple<>(reduction, matrix);
+        return new Tuple(reduction, matrix);
     }
 
     /**
@@ -199,14 +207,14 @@ public class Solver implements ProblemSolver {
      *
      * @return The reduction of reduction.
      */
-    private Double reduceMatrixRows(Double[][] source) {
-        Double reduction = 0d;
+    private double reduceMatrixRows(double[][] source) {
+        double reduction = 0d;
 
         outer:
         for (int row = 0; row < source.length; row++) {
             // Finds the minimum cost.
-            Double min = Double.MAX_VALUE;
-            for (Double cell : source[row]) {
+            double min = Double.MAX_VALUE;
+            for (double cell : source[row]) {
                 if (cell == 0)  continue outer;
                 else if (Objects.equals(cell, INFINITY)) continue;
 
@@ -239,14 +247,14 @@ public class Solver implements ProblemSolver {
      *
      * @return The reduction of reduction.
      */
-    private Double reduceMatrixColumns(Double[][] source) {
-        Double reduction = 0d;
+    private double reduceMatrixColumns(double[][] source) {
+        double reduction = 0d;
 
         outer:
         for (int col = 0; col < source.length; col++) {
-            Double min = Double.MAX_VALUE;
+            double min = Double.MAX_VALUE;
             // Finds minimum in a column.
-            for (Double[] row : source) {
+            for (double[] row : source) {
                 if (row[col] == 0)  continue outer;
                 else if (Objects.equals(row[col], INFINITY)) continue;
 
@@ -280,10 +288,10 @@ public class Solver implements ProblemSolver {
      *
      * @return Fresh instance of a matrix object.
      */
-    private Double[][] deepClone(Double[][] original) {
-        Double[][] clone = new Double[original.length][original.length];
+    private double[][] deepClone(double[][] original) {
+        double[][] clone = new double[original.length][original.length];
 
-        for (Integer k = 0; k < original.length; k++) {
+        for (int k = 0; k < original.length; k++) {
             System.arraycopy(original[k], 0, clone[k], 0, original.length);
         }
 
